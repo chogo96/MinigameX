@@ -24,7 +24,7 @@ public class FroggerCar : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             // 로그 출력
-            Debug.Log("Player has entered the trigger: " + other.gameObject.name);
+            Debug.Log("Player has entered the trigger: " + other.gameObject.name + "\ncar name: " + this.gameObject.name);
             PlayerFrogger player = other.GetComponent<PlayerFrogger>();
             if (player != null)
             {

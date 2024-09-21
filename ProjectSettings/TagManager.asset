@@ -5,16 +5,19 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
+  - FxTemporaire
+  - Retry
+  - Goal
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Wall
-  - 
-  - 
+  - Ground
+  - Carrier
   - 
   - 
   - 

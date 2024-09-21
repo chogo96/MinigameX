@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class FroggerMover : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] public float speed;
     [SerializeField] public Direction moveDirection;
-    [SerializeField] bool isCarrier;
+    [SerializeField] public bool isCarrier;
+    public Vector3 movement = Vector3.zero;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,9 @@ public class FroggerMover : MonoBehaviour
     }
     void Move()
     {
-        Vector3 movement = Vector3.zero;
+
+
+
 
         // moveDirection에 따라 움직임 방향 설정
         switch (moveDirection)
@@ -42,5 +45,6 @@ public class FroggerMover : MonoBehaviour
         // 프레임마다 speed에 따라 이동
         // transform.Translate(movement * speed * Time.deltaTime);
         transform.Translate(movement * speed * Time.deltaTime, Space.World);
+
     }
 }
