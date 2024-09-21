@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 30edc43dcf96d4727b0eed4fa5422ead
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - dieAudioClip: {fileID: 8300000, guid: c2302c588c4014ed8a5305c5152e1eed, type: 3}
+  - explosionParticle: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

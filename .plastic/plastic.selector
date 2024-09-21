@@ -1,0 +1,4 @@
+repository "xman@YongGames@cloud"
+  path "/"
+    br "/main"
+    co "/main"
