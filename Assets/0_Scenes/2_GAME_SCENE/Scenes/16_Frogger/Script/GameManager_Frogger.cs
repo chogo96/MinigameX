@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManagerFrogger : GameManager
 {
     private AudioSource audioSource;
+    [SerializeField] GameObject[] playerPos;
+    [SerializeField] GameObject PlayerParent;
 
     void Awake()
     {
@@ -14,6 +16,7 @@ public class GameManagerFrogger : GameManager
     void Start()
     {
         Debug.Log("Start");
+        //Gen Player
     }
 
     // Update is called once per frame

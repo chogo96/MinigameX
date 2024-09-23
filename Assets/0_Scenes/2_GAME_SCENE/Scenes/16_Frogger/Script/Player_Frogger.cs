@@ -124,7 +124,7 @@ public class PlayerFrogger : MonoBehaviour
             if (hitFloor.collider.CompareTag("Goal") && !isGoalIn)
             {
                 // 만약에 골인지점이라면 GoalIn() 실행
-                GoalIn();
+                GoalIn(hitFloor.collider.transform.position);
             }
         }
 
@@ -171,9 +171,12 @@ public class PlayerFrogger : MonoBehaviour
         }
 
     }
-    void GoalIn()
+    void GoalIn(Vector3 goalPosition)
     {
         Debug.Log("GOAL IN!!!");
         isGoalIn = true;
+        this.transform.position = new Vector3(goalPosition.x, goalPosition.y, this.transform.position.z);
+
+
     }
 }
