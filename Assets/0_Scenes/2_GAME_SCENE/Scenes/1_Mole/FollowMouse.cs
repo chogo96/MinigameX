@@ -59,7 +59,7 @@ public class FollowMouse : MonoBehaviour
         worldPos = Camera.main.ScreenToWorldPoint(mousePos);
         // Debug.Log($"Input.mousePosition: {Input.mousePosition.ToString()}");
         // Debug.Log($"Mouse Click: {worldPos.ToString()}");
-        transform.position = new Vector3(worldPos.x, worldPos.y, 0f);
+
         // 마우스 위치를 다른 클라이언트에 전송 (RPC 호출)
         photonView.RPC("MoveCursor", RpcTarget.All, worldPos.x, worldPos.y);
         // foreach (GameObject particle in followCursor)
@@ -72,18 +72,15 @@ public class FollowMouse : MonoBehaviour
     void Click()
     {
         Debug.Log($"Click!~~");
+        // 마우스 클릭 위치를 화면 좌표에서 월드 좌표로 변환
+        mousePos = Input.mousePosition;
+        mousePos.z = Mathf.Abs(Camera.main.transform.position.z); // Z 값을 카메라와의 거리에 따라 설정
 
+        worldPos = Camera.main.ScreenToWorldPoint(mousePos);
         // 각 파티클을 활성화하고 위치를 설정
-        foreach (ParticleSystem particle in clickParticles)
-        {
-            particle.transform.position = new Vector3(worldPos.x, worldPos.y, 0f);
-            // particle.gameObject.SetActive(false);
-            // particle.gameObject.SetActive(true);
-            particle.Stop();
-            particle.Play();
-            Debug.Log($"Play particle! {particle.isPlaying}");
 
-        }
+        photonView.RPC("Trigger", RpcTarget.All, worldPos.x, worldPos.y);
+
     }
 
     [PunRPC]
@@ -91,15 +88,29 @@ public class FollowMouse : MonoBehaviour
     {
         transform.SetParent(PlayerParent.transform);
     }
+    [PunRPC]
+    void Trigger(float x, float y)
+    {
+        transform.position = new Vector3(x, y, 0f);
+        foreach (ParticleSystem particle in clickParticles)
+        {
 
+            // particle.gameObject.SetActive(false);
+            // particle.gameObject.SetActive(true);
+            particle.Stop();
+            particle.Play();
+            Debug.Log($"Play particle! {particle.isPlaying}");
+        }
+    }
 
     [PunRPC]
     void MoveCursor(float x, float y)
     {
-        // 전달받은 좌표로 파티클들의 위치를 업데이트
-        foreach (GameObject particle in followCursor)
-        {
-            particle.transform.position = new Vector3(x, y, 0f); // 2D이므로 Z는 0으로 고정
-        }
+        transform.position = new Vector3(x, y, 0f);
+        // // 전달받은 좌표로 파티클들의 위치를 업데이트
+        // foreach (GameObject particle in followCursor)
+        // {
+        //     particle.transform.position = new Vector3(x, y, 0f); // 2D이므로 Z는 0으로 고정
+        // }
     }
 }
