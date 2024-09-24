@@ -28,8 +28,8 @@ public class FroggerTurtle : MonoBehaviour
             {
                 loopNum++;
                 isRunning = true; // 코루틴 실행 중으로 설정
-                Debug.Log("Frogger roop start" + loopNum);
-                // 4 ~ 15초 사이의 랜덤 시간 대기 후 Warning 상태로 변경
+                                  // Debug.Log("Frogger roop start" + loopNum);
+                                  // 4 ~ 15초 사이의 랜덤 시간 대기 후 Warning 상태로 변경
                 float randomTimeForWarning = Random.Range(4f, 15f);
                 yield return new WaitForSeconds(randomTimeForWarning);
 
@@ -66,7 +66,7 @@ public class FroggerTurtle : MonoBehaviour
 
     void ChangeToWarning()
     {
-        Debug.Log("State changed to Warning");
+        // Debug.Log("State changed to Warning");
 
         turtleState = TutleState.Warning;
         // 자식 오브젝트의 모든 스프라이트를 빨간색으로 변경
@@ -134,7 +134,7 @@ public class FroggerTurtle : MonoBehaviour
     }
     void ChangeToNormal()
     {
-        Debug.Log("State changed to Normal");
+        // Debug.Log("State changed to Normal");
         turtleState = TutleState.Normal;
         // 자식 오브젝트의 모든 스프라이트를 빨간색으로 변경
         foreach (SpriteRenderer spriteRenderer in childSpriteRenderers)
@@ -153,7 +153,7 @@ public class FroggerTurtle : MonoBehaviour
     }
     void ChangeToHide()
     {
-        Debug.Log("State changed to Hide");
+        // Debug.Log("State changed to Hide");
         turtleState = TutleState.Hide;
         //숨기기
         foreach (SpriteRenderer spriteRenderer in childSpriteRenderers)

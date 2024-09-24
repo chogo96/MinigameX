@@ -34,7 +34,7 @@ public class GameSelect : MonoBehaviourPunCallbacks
             switch (index + 1)
             {
                 case 1:
-                    JoinRoomAndLoadScene("Play1");
+                    JoinRoomAndLoadScene("Mole");
                     break;
 
                 case 9:

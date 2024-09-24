@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Scenes/2_GAME_SCENE/Scenes/9_DodgeMisile/DodgeMisile.unity
     guid: 99ba87fa3aa72459dbe10cbbce5d9550
+  - enabled: 1
+    path: Assets/0_Scenes/2_GAME_SCENE/Scenes/16_Frogger/Frogger.unity
+    guid: 780e6caf0a4784de9b7e66079ddfc42d
+  - enabled: 1
+    path: Assets/0_Scenes/2_GAME_SCENE/Scenes/1_Mole/Mole.unity
+    guid: a1ca28206734e484aa9b44467f67f542
   m_configObjects: {}

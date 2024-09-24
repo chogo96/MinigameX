@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class PlayerFrogger : MonoBehaviour
@@ -10,30 +11,44 @@ public class PlayerFrogger : MonoBehaviour
     public bool isGoalIn = false;            // 움직이고 있는지 체크
     private Vector3 targetPosition;           // 이동할 목표 위치
     [SerializeField] AudioClip DieSound;
+    Vector3 moveDirection = Vector3.zero;
     private AudioSource audioSource;
     [SerializeField] private LayerMask wallLayer; // Wall 레이어를 Inspector에서 설정할 수 있도록
     [SerializeField] private LayerMask waterLayer; // floorLayer를 Inspector에서 설정할 수 있도록
     [SerializeField] private LayerMask floorLayer; // floorLayer를 Inspector에서 설정할 수 있도록
-
+    [SerializeField] GameObject PlayerParent;
     [SerializeField] private LayerMask carrierLayer; // floorLayer를 Inspector에서 설정할 수 있도록
-
+    private PhotonView photonView;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         targetPosition = transform.position;  // 시작 위치를 현재 위치로 설정
+        photonView = GetComponent<PhotonView>();
+        PlayerParent = GameObject.Find("Players");
+        if (PlayerParent != null)
+        {
+            Debug.Log("Players 오브젝트를 찾았습니다.");
+        }
+        else
+        {
+            Debug.LogError("Players 오브젝트를 찾을 수 없습니다.");
+        }
+        photonView.RPC("SetPlayerParent", RpcTarget.AllBuffered);
     }
 
     void Update()
     {
-        GetInput();
-        Move();
-        if (!isMoving)
+        if (photonView.IsMine)
         {
-            CheckFloor();
-            Carrier();
+            GetInput();
+            Move();
+            if (!isMoving)
+            {
+                CheckFloor();
+                Carrier();
 
+            }
         }
-
     }
 
     void GetInput()
@@ -41,38 +56,42 @@ public class PlayerFrogger : MonoBehaviour
         // 움직이지 않고 있을 때 입력을 받음
         if (!isMoving)
         {
-            Vector3 direction = Vector3.zero;
+
 
             // 위로 이동
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                direction = Vector3.up;
+                moveDirection = Vector3.up;
             }
             // 아래로 이동
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                direction = Vector3.down;
+                moveDirection = Vector3.down;
             }
             // 왼쪽으로 이동
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                direction = Vector3.left;
+                moveDirection = Vector3.left;
             }
             // 오른쪽으로 이동
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                direction = Vector3.right;
+                moveDirection = Vector3.right;
+            }
+            else
+            {
+                moveDirection = Vector3.zero;
             }
 
             // 방향이 설정된 경우에만 레이캐스트 수행
-            if (direction != Vector3.zero)
+            if (moveDirection != Vector3.zero)
             {
                 // Raycast: 플레이어가 이동하려는 방향으로 1f 거리만큼 쏘기
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, moveDistance, wallLayer);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, moveDirection, moveDistance, wallLayer);
 
                 if (hit.collider == null) // 벽이 없으면 이동
                 {
-                    targetPosition = transform.position + direction * moveDistance;
+                    targetPosition = transform.position + moveDirection * moveDistance;
                     isMoving = true;
                 }
                 else
@@ -150,7 +169,7 @@ public class PlayerFrogger : MonoBehaviour
 
     void Respawn()
     {
-        Debug.Log("Respawn");
+        //        Debug.Log("Respawn");
     }
     void Carrier()
     {
@@ -178,5 +197,50 @@ public class PlayerFrogger : MonoBehaviour
         this.transform.position = new Vector3(goalPosition.x, goalPosition.y, this.transform.position.z);
 
 
+    }
+
+
+
+    // // RPC로 부모 설정
+    // //GameManager쪽에 안붙이고 Player쪽에 붙이든 해야할 듯?!
+    [PunRPC]
+    void SetPlayerParent()
+    {
+        transform.SetParent(PlayerParent.transform);
+    }
+
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Player 부딪힘");
+            // 충돌한 객체가 다른 플레이어라면 밀기 처리
+            PhotonView targetPhotonView = collision.gameObject.GetComponent<PhotonView>();
+
+            if (targetPhotonView != null && !targetPhotonView.IsMine)
+            {
+                // 충돌한 상대방 플레이어와 나를 이동시키는 RPC 호출
+                photonView.RPC("PushPlayer", RpcTarget.All, targetPhotonView.ViewID, moveDirection);
+            }
+        }
+    }
+
+    [PunRPC]
+    void PushPlayer(int targetViewID, Vector3 direction)
+    {
+        Debug.Log("PushPlayer 실행");
+        // 자신을 한 칸 움직임
+        if (photonView.IsMine)
+        {
+            transform.position += direction * moveDistance;
+        }
+
+        // 상대방 플레이어를 밀기
+        PhotonView targetPhotonView = PhotonView.Find(targetViewID);
+        if (targetPhotonView != null && !targetPhotonView.IsMine)
+        {
+            targetPhotonView.transform.position += direction * moveDistance;
+        }
     }
 }
