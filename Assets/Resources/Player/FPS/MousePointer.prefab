@@ -93,6 +93,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CFXR Hit C 3D Yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 9127653965126434405, guid: 789eac015d1ab48f9a825856e16df6e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9127653965126459973, guid: 789eac015d1ab48f9a825856e16df6e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -193,6 +197,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2216893998189371038, guid: 2ed1d2e1016aa4c5cac8071835aa2aff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199701643641471928, guid: 2ed1d2e1016aa4c5cac8071835aa2aff, type: 3}
+      propertyPath: m_Intensity
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -323,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127653965126434405, guid: 557518d5fd37247be9ebf1537cc5c135, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9127653965126459973, guid: 557518d5fd37247be9ebf1537cc5c135, type: 3}
       propertyPath: m_LocalScale.x
@@ -517,7 +525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127653965126434405, guid: 557518d5fd37247be9ebf1537cc5c135, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9127653965126459973, guid: 557518d5fd37247be9ebf1537cc5c135, type: 3}
       propertyPath: m_LocalScale.x
