@@ -17,24 +17,24 @@ public class Fade : MonoBehaviour
 
     void Update()
     {
-        if (FadeIn_ing)
-        {
-            _time += Time.deltaTime;
-            Image.color = Color.Lerp(new Color(Image.color.r, Image.color.g, Image.color.b, Fade_Max), new Color(Image.color.r, Image.color.g, Image.color.b, 0), _time / Fade_Time);
-        }
+        // if (FadeIn_ing)
+        // {
+        //     _time += Time.deltaTime;
+        //     Image.color = Color.Lerp(new Color(Image.color.r, Image.color.g, Image.color.b, Fade_Max), new Color(Image.color.r, Image.color.g, Image.color.b, 0), _time / Fade_Time);
+        // }
 
-        if (FadeOut_ing)
-        {
-            _time += Time.deltaTime;
-            Image.color = Color.Lerp(new Color(Image.color.r, Image.color.g, Image.color.b, 0), new Color(Image.color.r, Image.color.g, Image.color.b, Fade_Max), _time / Fade_Time);
-        }
+        // if (FadeOut_ing)
+        // {
+        //     _time += Time.deltaTime;
+        //     Image.color = Color.Lerp(new Color(Image.color.r, Image.color.g, Image.color.b, 0), new Color(Image.color.r, Image.color.g, Image.color.b, Fade_Max), _time / Fade_Time);
+        // }
 
-        if (_time >= Fade_Time)
-        {
-            _time = 0;
-            FadeIn_ing = false;
-            FadeOut_ing = false;
-        }
+        // if (_time >= Fade_Time)
+        // {
+        //     _time = 0;
+        //     FadeIn_ing = false;
+        //     FadeOut_ing = false;
+        // }
     }
 
     public void FadeIn()

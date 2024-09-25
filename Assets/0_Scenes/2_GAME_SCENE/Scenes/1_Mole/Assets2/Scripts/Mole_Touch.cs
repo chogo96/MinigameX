@@ -7,13 +7,13 @@ public class Mole_Touch : MonoBehaviour
 	private bool touch_possible; // 애니메이션 상태를 확인하기 위한 플래그
 	public AudioClip[] audios; // 각 소리를 재생하기 위한 배열
 	private AudioSource audioSource; // AudioSource를 사용하기 위한 변수
-	private Mole_Manager mm; // CatchCount를 카운트하기 위한 변수
+	private GameManagerMole mm; // CatchCount를 카운트하기 위한 변수
 	private bool BedMole;
 
 	void Start()
 	{
 		_anim = GetComponent<Animator>();
-		mm = FindObjectOfType<Mole_Manager>();
+		mm = FindObjectOfType<GameManagerMole>();
 		audioSource = GetComponent<AudioSource>();
 
 		// AudioSource가 없으면 자동으로 추가

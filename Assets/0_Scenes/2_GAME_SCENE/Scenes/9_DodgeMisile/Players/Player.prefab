@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1293132277573392041}
   - component: {fileID: 6038726915893511728}
   - component: {fileID: 5703355936019681905}
+  - component: {fileID: 1763249719724730049}
+  - component: {fileID: -3841449866498517206}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -71,6 +73,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 1293132277573392041}
+  - {fileID: -3841449866498517206}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -98,6 +101,50 @@ MonoBehaviour:
   planeSpeed: 0
   sizeIndex: -1
   planeTypeIndex: 0
+  playerIndex: -1
+--- !u!50 &1763249719724730049
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105039910731696506}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &-3841449866498517206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105039910731696506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1001 &7338400439880217771
 PrefabInstance:
   m_ObjectHideFlags: 0

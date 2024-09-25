@@ -8,7 +8,7 @@ public class GameSelect : MonoBehaviourPunCallbacks
 {
     [SerializeField] Button[] buttonUIs;
     [SerializeField] TextMeshProUGUI logText;
-
+    string gameName = "";
     void Start()
     {
         // Photon 서버에 접속 시도
@@ -29,15 +29,20 @@ public class GameSelect : MonoBehaviourPunCallbacks
         // 마스터 서버에 접속된 상태에서만 실행
         if (PhotonNetwork.IsConnectedAndReady)
         {
-            switch (index)
+            Debug.Log("클릭!클릭!" + (index + 1));
+
+            switch (index + 1)
             {
-                case 0:
-                    JoinRoomAndLoadScene("Play1");
+                case 1:
+                    JoinRoomAndLoadScene("Mole");
                     break;
 
-                case 8:
+                case 9:
                     Debug.Log("클릭!클릭!");
                     JoinRoomAndLoadScene("DodgeMisile");
+                    break;
+                case 16:
+                    JoinRoomAndLoadScene("Frogger");
                     break;
                     // 다른 case 문 추가 가능
             }
@@ -53,8 +58,9 @@ public class GameSelect : MonoBehaviourPunCallbacks
     {
         // 룸 옵션 설정 (필요에 따라 커스터마이즈 가능)
         RoomOptions roomOptions = new RoomOptions { MaxPlayers = 4 };
-        PhotonNetwork.JoinOrCreateRoom("DefaultRoom", roomOptions, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(sceneName, roomOptions, TypedLobby.Default);
         logText.text = "Joining Room...";
+        gameName = sceneName;
     }
 
     // Photon 서버에 성공적으로 접속했을 때 호출되는 콜백
@@ -77,7 +83,7 @@ public class GameSelect : MonoBehaviourPunCallbacks
         logText.text = $"Joined Room. Current Players: {currentPlayers}/{maxPlayers}";
 
         // 씬 로드
-        PhotonNetwork.LoadLevel("DodgeMisile");
+        PhotonNetwork.LoadLevel(gameName);
     }
 
     // Photon 룸 입장 실패 시 호출되는 콜백
