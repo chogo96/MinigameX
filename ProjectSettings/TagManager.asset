@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
+  - VC_Enemy
+  - VC_Hostage
   layers:
   - Default
   - TransparentFX
