@@ -47,6 +47,12 @@ MonoBehaviour:
   - Trigger
   - RPC_GenerateBullet
   - TeleportBullet
+  - SetParentRPC
+  - SetMissileParentRPC
+  - UpdateHPRPC
+  - DestroyObjects
+  - EquiptShield
+  - ExplodeRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

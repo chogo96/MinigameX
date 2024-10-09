@@ -11,3 +11,7 @@ public enum Direction
 {
     Up, Down, Left, Right
 }
+public enum ItemTypePlane
+{
+    Weapon, Shield, Heal,
+}

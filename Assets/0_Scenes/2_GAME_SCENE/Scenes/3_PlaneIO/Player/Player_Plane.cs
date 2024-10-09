@@ -13,17 +13,29 @@ public class PlayerPlane : MonoBehaviour
     [SerializeField] private Vector3 cameraOffset = new Vector3(0, 0, -10); // Z축을 포함한 오프셋
     Vector2 directionVector = Vector2.zero;
     [SerializeField] private LayerMask wallLayer; // 벽 레이어를 지정 (충돌 감지 대상)
+    [SerializeField] private HpBarPlane HpUi;
     private PhotonView photonView;
+    private GameObject players;
 
     // Start is called before the first frame update
     void Start()
     {
+        players = GameObject.Find("Players");
         rb = GetComponent<Rigidbody2D>(); // Rigidbody2D 가져오기
         SetPlayer();
         Hp = 100;
         MousePointer = FindObjectOfType<MousePointer>().gameObject;
         // photonView 컴포넌트를 가져옴
         photonView = GetComponent<PhotonView>();
+        HpUi = GetComponentInChildren<HpBarPlane>();
+
+
+        if (players == null)
+        {
+            Debug.LogError("Players GameObject를 찾을 수 없습니다.");
+        }
+
+        photonView.RPC("SetParentRPC", RpcTarget.AllBuffered);
     }
 
     // Update is called once per frame
@@ -127,15 +139,58 @@ public class PlayerPlane : MonoBehaviour
 
     void Die()
     {
+        Debug.Log("Die");
         //
     }
 
     public void Damaged(float Damage)
     {
+        //만약에 쉴드를 가지고 있으면, 쉴드를 없애고, return;
+
+        Debug.Log("총알 아야!");
         Hp -= Damage;
+        photonView.RPC("UpdateHPRPC", RpcTarget.AllBuffered, Hp);
         if (Hp < 0)
         {
             Die();
         }
+
+    }
+
+    public void RestoreHp()
+    {
+        Hp = 100;
+        photonView.RPC("UpdateHPRPC", RpcTarget.AllBuffered, Hp);
+    }
+
+    [PunRPC]
+    void UpdateHPRPC(float playerHp)
+    {
+        Debug.Log("UpdateHPRPC");
+        HpUi.UpdateHpBar(playerHp);
+    }
+
+
+    [PunRPC]
+    void SetParentRPC()
+    {
+        if (players == null) { players = GameObject.Find("Players"); }
+        Debug.Log("SetParentRPC");
+        transform.SetParent(players.transform); // 부모 설정
+    }
+
+    [PunRPC]
+    void EquiptShield()
+    {
+        if (!photonView.IsMine) { return; }
+        Debug.Log("EquiptShield");
+        // PhotonNetwork를 사용해 쉴드를 생성
+        GameObject shield = PhotonNetwork.Instantiate("Weapon/Plane/Shield", this.transform.position, Quaternion.identity);
+
+
+        // 생성된 미사일의 parent를 지정 (미사일을 플레이어에 종속시킴)
+        PhotonView shieldPhotonView = shield.GetComponent<PhotonView>();
+
+        shieldPhotonView.RPC("SetParentRPC", RpcTarget.All, GetComponent<PhotonView>().ViewID, 7f);
     }
 }

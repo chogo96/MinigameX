@@ -22,12 +22,15 @@ public class GameManager_Plane : GameManager
 
     void GenPlayers()
     {
-        //Gen Player
+        // Gen Player // 각각 내꺼를 만듬
         int playerIndex = PhotonNetwork.LocalPlayer.ActorNumber - 1;
         Debug.Log($"{playerIndex}번째 플레이어 Gen");
         Vector3 spawnPosition = playerPos[playerIndex].transform.position;
-        GameObject newPlayer = PhotonNetwork.Instantiate("Player/PlaneIO/" + "Player", spawnPosition, Quaternion.identity);
-        newPlayer.transform.SetParent(players.transform);
+
+        // PhotonNetwork를 통해 플레이어 생성
+        GameObject newPlayer = PhotonNetwork.Instantiate("Player/PlaneIO/Player", spawnPosition, Quaternion.identity);
 
     }
+
+
 }

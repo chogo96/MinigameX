@@ -26,7 +26,7 @@ public class BoundaryPlane : MonoBehaviour
         if (other.CompareTag("Bullet") || other.CompareTag("Item"))
         {
             // 해당 객체 삭제
-            Destroy(other.gameObject);
+            // Destroy(other.gameObject);
             Debug.Log("Object with tag " + other.tag + " has been destroyed.");
         }
     }
