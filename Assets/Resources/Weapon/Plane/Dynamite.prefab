@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  radius: 3
   damage: 10
 --- !u!212 &3993961747234214900
 SpriteRenderer:
