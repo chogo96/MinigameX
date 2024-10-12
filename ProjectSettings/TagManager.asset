@@ -8,6 +8,8 @@ TagManager:
   - FxTemporaire
   - Retry
   - Goal
+  - Mole
+  - Item
   layers:
   - Default
   - TransparentFX

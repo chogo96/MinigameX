@@ -36,7 +36,9 @@ public class GameSelect : MonoBehaviourPunCallbacks
                 case 1:
                     JoinRoomAndLoadScene("Mole");
                     break;
-
+                case 3:
+                    JoinRoomAndLoadScene("Plane");
+                    break;
                 case 9:
                     Debug.Log("클릭!클릭!");
                     JoinRoomAndLoadScene("DodgeMisile");

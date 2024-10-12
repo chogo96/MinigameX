@@ -18,10 +18,7 @@ public class GameManagerFrogger : GameManager
     {
         Debug.Log("Start");
         //Gen Player
-        int playerIndex = PhotonNetwork.LocalPlayer.ActorNumber - 1;
-        Vector3 spawnPosition = playerPos[playerIndex].transform.position;
-        GameObject newPlayer = PhotonNetwork.Instantiate("Player/Frogger/" + "Player1", spawnPosition, Quaternion.identity);
-
+        GenPlayers();
 
     }
 
@@ -32,4 +29,12 @@ public class GameManagerFrogger : GameManager
 
     }
 
+    void GenPlayers()
+    {
+        //Gen Player
+        int playerIndex = PhotonNetwork.LocalPlayer.ActorNumber - 1;
+        Vector3 spawnPosition = playerPos[playerIndex].transform.position;
+        GameObject newPlayer = PhotonNetwork.Instantiate("Player/Frogger/" + "Player1", spawnPosition, Quaternion.identity);
+
+    }
 }

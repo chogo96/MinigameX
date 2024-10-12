@@ -28,7 +28,7 @@ public class GameManagerDodge : GameManager
 
         BulletManager bulletManager = FindObjectOfType<BulletManager>();
         Debug.Log("Start2");
-        bulletManager.generateBullet();
+        bulletManager.GenerateBullet();
         Debug.Log("Start3");
         isTimerOn = true;
         Debug.Log("Start4");
@@ -62,6 +62,12 @@ public class GameManagerDodge : GameManager
     {
         gameState = GameState.GameReady;
         // 자신의 인덱스를 가져옴 (예를 들어 LocalPlayer의 ActorNumber를 인덱스로 사용)
+        GenPlayers();
+        // 4초 후에 GameStart 메서드 호출
+        StartCoroutine(GameStartAfterDelay(3f));
+    }
+    void GenPlayers()
+    {
         int playerIndex = PhotonNetwork.LocalPlayer.ActorNumber - 1;
         Debug.Log("playerPrefab.name : " + playerPrefab.name);
         if (playerIndex < playerPositionList.Count)
@@ -77,10 +83,7 @@ public class GameManagerDodge : GameManager
         {
             Debug.LogError("Player index가 플레이어 포지션 리스트를 초과했습니다.");
         }
-        // 4초 후에 GameStart 메서드 호출
-        StartCoroutine(GameStartAfterDelay(3f));
     }
-
     // 지정된 시간(초) 후에 GameStart를 호출하는 코루틴
     private IEnumerator GameStartAfterDelay(float delay)
     {
