@@ -46,7 +46,11 @@ public class GameSelect : MonoBehaviourPunCallbacks
                 case 16:
                     JoinRoomAndLoadScene("Frogger");
                     break;
+                case 26:
+                    JoinRoomAndLoadScene("Flag");
+                    break;
                     // 다른 case 문 추가 가능
+
             }
         }
         else
