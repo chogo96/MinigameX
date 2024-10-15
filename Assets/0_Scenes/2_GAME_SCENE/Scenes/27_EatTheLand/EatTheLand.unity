@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -440,9 +440,9 @@ GameObject:
   - component: {fileID: 1915188555}
   - component: {fileID: 1915188554}
   - component: {fileID: 1915188559}
-  - component: {fileID: 1915188558}
   - component: {fileID: 1915188561}
   - component: {fileID: 1915188560}
+  - component: {fileID: 1915188563}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -539,24 +539,6 @@ Transform:
   - {fileID: 179562988}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1915188558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915188553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3114cca98dabd426687198d50e48be0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movDir: {x: 0, y: 0, z: 0}
-  _movSpeed: 10
-  _rotSpeed: 30
-  _yVelocity: 0
-  _dashPower: 0
-  _jumpPower: 10
 --- !u!54 &1915188559
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -596,7 +578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b0896db09464255861899ecdc67d49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gravity: -20
+  _gravity: -50
 --- !u!114 &1915188561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,11 +595,30 @@ MonoBehaviour:
   _xzBoxSize: 1.71
   _yBoxSize: 1
   _lengthFromTransform: 1.06
-  isLandObj: {fileID: 0}
   checkLandMasks:
     serializedVersion: 2
     m_Bits: 128
   detatchedObj: []
+--- !u!114 &1915188563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915188553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc22d2ad9d68e142b4bf26cb310bf5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _upDownBoxCheck: {fileID: 1915188561}
+  _gravity: {fileID: 1915188560}
+  _rb: {fileID: 1915188559}
+  _movDir: {x: 0, y: 0, z: 0}
+  _movSpeed: 1000
+  _rotSpeed: 30
+  _yVelocity: 0
+  _jumpPower: 10
 --- !u!1 &2066670902
 GameObject:
   m_ObjectHideFlags: 0
