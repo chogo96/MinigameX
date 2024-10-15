@@ -39,6 +39,15 @@ public class UpDownBoxCheck : MonoBehaviour
     {
         UpdateCheckBoxParameter();
         detatchedObj = Physics.OverlapBox(_checkBoxCenter, _checkBox * 0.5f, transform.rotation, checkLandMasks);
+
+        // if(detatchedObj.Length ==0)
+        // {
+        //     isLandObj = null;
+        // }
+        // else
+        // {
+        //     isLandObj = detatchedObj[0].transform;
+        // }
         if(detatchedObj.Length >0)
         {
             return true;
@@ -46,6 +55,10 @@ public class UpDownBoxCheck : MonoBehaviour
         else return false;
     }
     
+    void Update()
+    {
+        CheckBox();
+    }
     void OnDrawGizmos()
     {
         UpdateCheckBoxParameter();
