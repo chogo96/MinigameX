@@ -13,10 +13,15 @@ public class Player_Normal : MonoBehaviour, IPlayer
     [SerializeField] private float _dashPower;
 
     [SerializeField] PlayerInputAction _input;
+    private UpDownBoxCheck _upDownBoxCheck;
+    private Gravity _gravity;
     private Rigidbody _rb;
+
 
     void Awake()
     {
+        _upDownBoxCheck = GetComponent<UpDownBoxCheck>();
+        _gravity = GetComponent<Gravity>();
         _input = new PlayerInputAction();
     }
     void Start()
@@ -24,6 +29,7 @@ public class Player_Normal : MonoBehaviour, IPlayer
         _rb = GetComponent<Rigidbody>();
     }
 
+    //  키 입력값 받기
     void OnEnable()
     {
         _input.Player.Enable();
@@ -31,24 +37,36 @@ public class Player_Normal : MonoBehaviour, IPlayer
         _input.Player.Move3D.canceled += OnMove;
     }
 
+
+    //  움직임을 구현하는 키 받아서 이동
     void OnMove(InputAction.CallbackContext context)
     {
         Vector3 _inputDir = context.ReadValue<Vector3>();
         _movDir = new Vector3(_inputDir.x, 0, _inputDir.z).normalized; 
         Debug.Log(_movDir);
         _movDir += _movDir * Time.fixedDeltaTime;
+       
+    }
+
+    void Move()
+    {
+        
+         if(!_upDownBoxCheck.CheckBox())
+        {
+            _yVelocity += _gravity.OnGravity();
+        }
+        else
+        {
+            _yVelocity = 0;
+        }
+        Debug.Log(_upDownBoxCheck.CheckBox());
         _movDir.y = _yVelocity;
         _rb.velocity = _movDir;
 
         // Rotate();
     }
 
-    void Move()
-    {
-        
-
-    }
-
+    //  회전
     void Rotate()
     {
         Vector2 rotVec = new Vector2(_movDir.x, _movDir.z);
@@ -65,8 +83,7 @@ public class Player_Normal : MonoBehaviour, IPlayer
     }
 
     void Update()
-    {
-        // Debug.Log(_movDir);
+    {        
         Init();
     }
     
