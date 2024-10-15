@@ -24,168 +24,105 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     ""name"": ""PlayerInputAction"",
     ""maps"": [
         {
-            ""name"": ""3DPlayer"",
-            ""id"": ""09439c04-cc56-434a-bd17-2aa4c473d84d"",
+            ""name"": ""Player"",
+            ""id"": ""a047f498-7ecc-4da6-8b12-2ec7a254aab8"",
             ""actions"": [
                 {
-                    ""name"": ""3DMove"",
+                    ""name"": ""Move3D"",
                     ""type"": ""Value"",
-                    ""id"": ""91bb6ede-4410-4403-a8ca-992b0ab3d109"",
+                    ""id"": ""6e3e0cc0-7f3c-4961-bb39-4be678865926"",
                     ""expectedControlType"": ""Vector3"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""LeftClick"",
-                    ""type"": ""Button"",
-                    ""id"": ""ef0b939c-1829-4adf-a70d-2cfe81d5f0be"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""UseItem"",
-                    ""type"": ""Button"",
-                    ""id"": ""f2deab60-2e04-4234-a3da-5902f461ea17"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Jump"",
-                    ""type"": ""Button"",
-                    ""id"": ""8d1d1b83-6402-40b0-ac73-169fb8f1875c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""wasd"",
-                    ""id"": ""c90837eb-0449-4e70-8e1d-06c61612c45c"",
+                    ""name"": ""3D Vector"",
+                    ""id"": ""27c5c384-80bc-4d17-958a-c05f1a867080"",
                     ""path"": ""3DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""3DMove"",
+                    ""action"": ""Move3D"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""caef9871-50fb-4607-b2d4-c2831a7616e2"",
+                    ""id"": ""e4e2bd53-a3b5-4cc7-bc4a-2e9c7dc9bb56"",
                     ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""3DMove"",
+                    ""action"": ""Move3D"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""4c8d4eda-fcf4-4faf-89c3-4e3ef756354c"",
+                    ""id"": ""d45ca4f8-b53c-4b9e-8779-cf4c734ad1f8"",
                     ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""3DMove"",
+                    ""action"": ""Move3D"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""12b486dc-d44c-4805-b6bb-d4698eb33409"",
-                    ""path"": """",
+                    ""id"": ""8a746c72-9f6f-47b4-b6f1-ca027b2a0042"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""3DMove"",
+                    ""action"": ""Move3D"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""6218f222-9719-478a-89b7-ff0fa3af7a8a"",
-                    ""path"": """",
+                    ""id"": ""e1ba4923-bd4e-4e2c-9696-33be982e58c2"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""3DMove"",
+                    ""action"": ""Move3D"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""forward"",
-                    ""id"": ""62eb1001-2e29-46c7-af9e-420a3fdf49e0"",
-                    ""path"": """",
+                    ""id"": ""3053b172-1da5-4a2d-9ee8-83ed2d89220e"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""3DMove"",
+                    ""action"": ""Move3D"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""backward"",
-                    ""id"": ""723f5b6f-0c4e-4574-bc7f-a4e2d87af5ae"",
-                    ""path"": """",
+                    ""id"": ""d041a0c2-eb6a-4ec4-8092-dd9841de9c16"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""3DMove"",
+                    ""action"": ""Move3D"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""49dbf49a-131a-4740-978a-3fd106a30430"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""LeftClick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9d428f2f-7ec6-4d3b-9050-1ca964b551d6"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UseItem"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""dbb23a39-0daa-4665-b191-f4a567a847fb"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // 3DPlayer
-        m__3DPlayer = asset.FindActionMap("3DPlayer", throwIfNotFound: true);
-        m__3DPlayer__3DMove = m__3DPlayer.FindAction("3DMove", throwIfNotFound: true);
-        m__3DPlayer_LeftClick = m__3DPlayer.FindAction("LeftClick", throwIfNotFound: true);
-        m__3DPlayer_UseItem = m__3DPlayer.FindAction("UseItem", throwIfNotFound: true);
-        m__3DPlayer_Jump = m__3DPlayer.FindAction("Jump", throwIfNotFound: true);
+        // Player
+        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
+        m_Player_Move3D = m_Player.FindAction("Move3D", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -244,80 +181,53 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // 3DPlayer
-    private readonly InputActionMap m__3DPlayer;
-    private List<I_3DPlayerActions> m__3DPlayerActionsCallbackInterfaces = new List<I_3DPlayerActions>();
-    private readonly InputAction m__3DPlayer__3DMove;
-    private readonly InputAction m__3DPlayer_LeftClick;
-    private readonly InputAction m__3DPlayer_UseItem;
-    private readonly InputAction m__3DPlayer_Jump;
-    public struct _3DPlayerActions
+    // Player
+    private readonly InputActionMap m_Player;
+    private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
+    private readonly InputAction m_Player_Move3D;
+    public struct PlayerActions
     {
         private @PlayerInputAction m_Wrapper;
-        public _3DPlayerActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
-        public InputAction @_3DMove => m_Wrapper.m__3DPlayer__3DMove;
-        public InputAction @LeftClick => m_Wrapper.m__3DPlayer_LeftClick;
-        public InputAction @UseItem => m_Wrapper.m__3DPlayer_UseItem;
-        public InputAction @Jump => m_Wrapper.m__3DPlayer_Jump;
-        public InputActionMap Get() { return m_Wrapper.m__3DPlayer; }
+        public PlayerActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move3D => m_Wrapper.m_Player_Move3D;
+        public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(_3DPlayerActions set) { return set.Get(); }
-        public void AddCallbacks(I_3DPlayerActions instance)
+        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerActions instance)
         {
-            if (instance == null || m_Wrapper.m__3DPlayerActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m__3DPlayerActionsCallbackInterfaces.Add(instance);
-            @_3DMove.started += instance.On_3DMove;
-            @_3DMove.performed += instance.On_3DMove;
-            @_3DMove.canceled += instance.On_3DMove;
-            @LeftClick.started += instance.OnLeftClick;
-            @LeftClick.performed += instance.OnLeftClick;
-            @LeftClick.canceled += instance.OnLeftClick;
-            @UseItem.started += instance.OnUseItem;
-            @UseItem.performed += instance.OnUseItem;
-            @UseItem.canceled += instance.OnUseItem;
-            @Jump.started += instance.OnJump;
-            @Jump.performed += instance.OnJump;
-            @Jump.canceled += instance.OnJump;
+            if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
+            @Move3D.started += instance.OnMove3D;
+            @Move3D.performed += instance.OnMove3D;
+            @Move3D.canceled += instance.OnMove3D;
         }
 
-        private void UnregisterCallbacks(I_3DPlayerActions instance)
+        private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @_3DMove.started -= instance.On_3DMove;
-            @_3DMove.performed -= instance.On_3DMove;
-            @_3DMove.canceled -= instance.On_3DMove;
-            @LeftClick.started -= instance.OnLeftClick;
-            @LeftClick.performed -= instance.OnLeftClick;
-            @LeftClick.canceled -= instance.OnLeftClick;
-            @UseItem.started -= instance.OnUseItem;
-            @UseItem.performed -= instance.OnUseItem;
-            @UseItem.canceled -= instance.OnUseItem;
-            @Jump.started -= instance.OnJump;
-            @Jump.performed -= instance.OnJump;
-            @Jump.canceled -= instance.OnJump;
+            @Move3D.started -= instance.OnMove3D;
+            @Move3D.performed -= instance.OnMove3D;
+            @Move3D.canceled -= instance.OnMove3D;
         }
 
-        public void RemoveCallbacks(I_3DPlayerActions instance)
+        public void RemoveCallbacks(IPlayerActions instance)
         {
-            if (m_Wrapper.m__3DPlayerActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlayerActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(I_3DPlayerActions instance)
+        public void SetCallbacks(IPlayerActions instance)
         {
-            foreach (var item in m_Wrapper.m__3DPlayerActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlayerActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m__3DPlayerActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlayerActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public _3DPlayerActions @_3DPlayer => new _3DPlayerActions(this);
-    public interface I_3DPlayerActions
+    public PlayerActions @Player => new PlayerActions(this);
+    public interface IPlayerActions
     {
-        void On_3DMove(InputAction.CallbackContext context);
-        void OnLeftClick(InputAction.CallbackContext context);
-        void OnUseItem(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
+        void OnMove3D(InputAction.CallbackContext context);
     }
 }
