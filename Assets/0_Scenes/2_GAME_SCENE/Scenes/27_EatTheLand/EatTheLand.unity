@@ -615,9 +615,11 @@ MonoBehaviour:
   _gravity: {fileID: 1915188560}
   _rb: {fileID: 1915188559}
   _movDir: {x: 0, y: 0, z: 0}
-  _movSpeed: 1000
+  _movSpeed: 700
   _rotSpeed: 30
   _yVelocity: 0
+  _dashPower: 20
+  _dashDurationTime: 0.1
   _jumpPower: 10
 --- !u!1 &2066670902
 GameObject:

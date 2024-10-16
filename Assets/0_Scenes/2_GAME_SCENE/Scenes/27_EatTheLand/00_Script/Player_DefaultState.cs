@@ -1,6 +1,7 @@
 using Photon.Pun.Demo.SlotRacer;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEditor.Callbacks;
 using UnityEngine;
@@ -53,7 +54,7 @@ public class Player_DefaultState : PlayerBaseState
     {
         Vector3 _inputDir = context.ReadValue<Vector3>();
         _movDir = new Vector3(_inputDir.x, 0, _inputDir.z).normalized;
-        Debug.Log(_movDir);
+        //Debug.Log(_movDir);
 
     }
 
@@ -63,6 +64,11 @@ public class Player_DefaultState : PlayerBaseState
         {
             _yVelocity = _jumpPower;
         }    
+        else
+        {
+            Debug.Log("대쉬한다");
+            _control.ChangeState(EPlayer.DASH);
+        }
     }
 
 
@@ -112,6 +118,9 @@ public class Player_DefaultState : PlayerBaseState
         _input.Player.Move3D.canceled += OnMove;
         _input.Player.Jump.performed += OnJump;
 
+        _control._yVelocity = 0;
+        _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
+        Debug.Log(_control._yVelocity);
         //_movDir = _movDir * _movSpeed * Time.fixedDeltaTime;
 
     }
@@ -135,5 +144,8 @@ public class Player_DefaultState : PlayerBaseState
         _input.Player.Move3D.canceled -= OnMove;
         _input.Player.Jump.performed -= OnJump;
         _input.Player.Disable();
+        //  튀어오르는 것 방지용
+        _yVelocity= 0;
+
     }
 }

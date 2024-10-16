@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 public enum EPlayer { NORMAL, DASH, ICED, GRABED, WIND, EXPLOSION }
 public class PlayerControl : MonoBehaviour
@@ -17,6 +18,8 @@ public class PlayerControl : MonoBehaviour
     public float _movSpeed;
     public float _rotSpeed;
     public float _yVelocity;
+    public float _dashPower;
+    public float _dashDurationTime;
 
     public float _jumpPower;
 
@@ -29,7 +32,8 @@ public class PlayerControl : MonoBehaviour
         // Initialize states
         _states = new Dictionary<EPlayer, PlayerBaseState>
         {
-            { EPlayer.NORMAL, new Player_DefaultState(this) },            
+            { EPlayer.NORMAL, new Player_DefaultState(this) },
+            {EPlayer.DASH, new Player_DashState(this) },
         };
 
       
@@ -49,16 +53,22 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(CurrentState);
 
         CurrentState?.OnStateUpdate();
     }
 
     public void ChangeState(EPlayer newState)
     {
-        CurrentState?.OnStateExit();
+        if(CurrentState != null && _states[newState] == CurrentState)
+        {
+            Debug.LogWarning("Trying to switch to the same State.");
+            return;
+        }
+        CurrentState?.OnStateExit();    //  기존 상태 종료
 
-        CurrentState = _states[newState];
+        CurrentState = _states[newState];   //  새 상태로 전환
 
-        CurrentState.OnStateEnter();
+        CurrentState.OnStateEnter();    //  새 상태 시작
     }
 }
