@@ -2,11 +2,16 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 public enum EPlayer { NORMAL, DASH, ICED, GRABED, WIND, EXPLOSION }
+public enum ETeam
+{
+    RED,
+    BLUE
+}
 public class PlayerControl : MonoBehaviour
 {
     public PlayerBaseState CurrentState { get; private set; }
     private Dictionary<EPlayer, PlayerBaseState> _states;
-
+    public ETeam team;
 
     public PlayerInputAction _input;
     public UpDownBoxCheck _upDownBoxCheck;

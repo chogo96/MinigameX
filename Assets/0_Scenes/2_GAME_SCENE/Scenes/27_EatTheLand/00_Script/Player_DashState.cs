@@ -59,10 +59,6 @@ public class Player_DashState : PlayerBaseState
     public override void OnStateExit()
     {
         //  상태전환
-        //_control.ChangeState(EPlayer.NORMAL);
-        //_rb.velocity = Vector3.zero;
-        //_control._yVelocity= 0;
-        //_rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
         Debug.Log("대쉬 종료");
     }
 }

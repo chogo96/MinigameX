@@ -14,10 +14,10 @@ public class UpDownBoxCheck : MonoBehaviour
     private Vector3 _checkBox;
     private Vector3 _checkBoxCenter;
 
-    // public Transform isLandObj;
+    public Transform detatchedObj;
 
     [SerializeField] private LayerMask checkLandMasks;
-    [SerializeField] private Collider[] detatchedObj;
+    [SerializeField] private Collider[] detatchedObjs;
 
 
     private void UpdateCheckBoxParameter()
@@ -38,17 +38,17 @@ public class UpDownBoxCheck : MonoBehaviour
     public bool CheckBox()
     {
         UpdateCheckBoxParameter();
-        detatchedObj = Physics.OverlapBox(_checkBoxCenter, _checkBox * 0.5f, transform.rotation, checkLandMasks);
+        detatchedObjs = Physics.OverlapBox(_checkBoxCenter, _checkBox * 0.5f, transform.rotation, checkLandMasks);
 
-        // if(detatchedObj.Length ==0)
-        // {
-        //     isLandObj = null;
-        // }
-        // else
-        // {
-        //     isLandObj = detatchedObj[0].transform;
-        // }
-        if(detatchedObj.Length >0)
+        if (detatchedObjs.Length == 0)
+        {
+            detatchedObj = null;
+        }
+        else
+        {
+            detatchedObj = detatchedObjs[0].transform;
+        }
+        if (detatchedObjs.Length >0)
         {
             return true;
         }

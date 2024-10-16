@@ -9,7 +9,8 @@ using UnityEngine.InputSystem;
 
 public class Player_DefaultState : PlayerBaseState
 {
-   
+ 
+
 
     public Vector3 _movDir;
     public float _movSpeed;
