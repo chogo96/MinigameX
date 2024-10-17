@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class UpDownBoxCheck : MonoBehaviour
 {
+    [SerializeField] private Color _boxColor;
     [SerializeField] private bool _isDownCast;
 
     [SerializeField] private float _xzBoxSize;
@@ -38,7 +39,7 @@ public class UpDownBoxCheck : MonoBehaviour
     public bool CheckBox()
     {
         UpdateCheckBoxParameter();
-        detatchedObjs = Physics.OverlapBox(_checkBoxCenter, _checkBox * 0.5f, transform.rotation, checkLandMasks);
+        detatchedObjs = Physics.OverlapBox(_checkBoxCenter, _checkBox * 0.25f, transform.rotation, checkLandMasks);
 
         if (detatchedObjs.Length == 0)
         {
@@ -62,7 +63,7 @@ public class UpDownBoxCheck : MonoBehaviour
     void OnDrawGizmos()
     {
         UpdateCheckBoxParameter();
-        Gizmos.color = Color.red;
+        Gizmos.color = _boxColor;
         Gizmos.DrawCube(_checkBoxCenter, _checkBox /2);
     }
 }

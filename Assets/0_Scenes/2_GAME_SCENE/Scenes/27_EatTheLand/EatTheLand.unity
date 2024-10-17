@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed3cc4597d0e445faa122e9825e2dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boxColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   _isDownCast: 0
   _xzBoxSize: 5.84
   _yBoxSize: 0.76
@@ -337,9 +338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed3cc4597d0e445faa122e9825e2dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boxColor: {r: 0, g: 0, b: 1, a: 1}
   _isDownCast: 1
   _xzBoxSize: 1.71
-  _yBoxSize: 1
+  _yBoxSize: 0.2
   _lengthFromTransform: 1.06
   detatchedObj: {fileID: 0}
   checkLandMasks:
@@ -1009,6 +1011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed3cc4597d0e445faa122e9825e2dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boxColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   _isDownCast: 0
   _xzBoxSize: 5.84
   _yBoxSize: 0.76
@@ -1253,6 +1256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed3cc4597d0e445faa122e9825e2dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boxColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   _isDownCast: 0
   _xzBoxSize: 5.84
   _yBoxSize: 0.76
@@ -1295,6 +1299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed3cc4597d0e445faa122e9825e2dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boxColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   _isDownCast: 0
   _xzBoxSize: 5.84
   _yBoxSize: 0.76
@@ -1542,7 +1547,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1915188560
 MonoBehaviour:
@@ -1569,10 +1574,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed3cc4597d0e445faa122e9825e2dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boxColor: {r: 1, g: 0, b: 0, a: 1}
   _isDownCast: 1
   _xzBoxSize: 1.71
-  _yBoxSize: 1
-  _lengthFromTransform: 1.06
+  _yBoxSize: 0.2
+  _lengthFromTransform: 1
   detatchedObj: {fileID: 0}
   checkLandMasks:
     serializedVersion: 2
@@ -1672,9 +1678,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed3cc4597d0e445faa122e9825e2dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boxColor: {r: 1, g: 0, b: 0, a: 1}
   _isDownCast: 1
   _xzBoxSize: 1.71
-  _yBoxSize: 1
+  _yBoxSize: 0.2
   _lengthFromTransform: 1.06
   detatchedObj: {fileID: 0}
   checkLandMasks:
