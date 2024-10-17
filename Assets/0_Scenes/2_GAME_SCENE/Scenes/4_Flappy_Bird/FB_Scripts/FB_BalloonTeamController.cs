@@ -3,23 +3,28 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using System.Collections;
+using UnityEngine.UI;
 
 public class FB_BalloonTeamController : MonoBehaviourPunCallbacks
 {
-    public RectTransform balloonRect;   // 열기구의 RectTransform
-    public float liftSpeed = 200f;      // 열기구 상승 속도
-    public float gravity = 50f;         // 중력의 효과
-    public TMP_Text[] teamMemberTexts;  // 팀원의 입력량을 표시할 텍스트 UI 배열
+    public RectTransform balloonRect;
+    public float liftSpeed = 200f;
+    public float gravity = 50f;
+    public TMP_Text[] teamMemberTexts;
+    public TMP_Text scoreText;
 
-    private float[] teamHoldPercentages; // 팀원의 입력 비율 저장
-    private float totalHoldPercentage = 0f; // 팀 전체 입력 합산 비율
-    private float currentVelocity = 0f; // 열기구의 현재 속도
+    private float[] teamHoldPercentages;
+    private float totalHoldPercentage = 0f;
+    private float currentVelocity = 0f;
+    private int score = 0;
 
-    private bool isLocalMode = false; // 디버깅을 위한 로컬 모드 플래그
-    private bool hasRisen = false; // 상승이 한 번도 적용되었는지 확인
-    private bool isInvincible = false; // 무적 상태 확인
-    private bool isControlEnabled = true; // 조작 가능 여부
+    private bool isLocalMode = false;
+    private bool hasRisen = false;
+    public bool isInvincible = false;
+    private bool isControlEnabled = true;
 
+    public delegate void InvincibilityEndHandler();
+    public event InvincibilityEndHandler OnInvincibilityEnd;
     private void Start()
     {
         if (!PhotonNetwork.IsConnected)
@@ -32,6 +37,7 @@ public class FB_BalloonTeamController : MonoBehaviourPunCallbacks
         {
             InitializeTeamHoldPercentages();
         }
+        UpdateScoreText();
     }
 
     private void InitializeLocalMode()
@@ -139,7 +145,6 @@ public class FB_BalloonTeamController : MonoBehaviourPunCallbacks
         }
     }
 
-    // 무적 상태 시작 메서드
     public void TriggerInvincibility()
     {
         if (!isInvincible)
@@ -148,31 +153,46 @@ public class FB_BalloonTeamController : MonoBehaviourPunCallbacks
         }
     }
 
-    // 무적 상태와 조작 제한 코루틴
     private IEnumerator InvincibilityRoutine()
     {
         isInvincible = true;
         isControlEnabled = false;
 
-        // 1초간 조작 비활성화
         yield return new WaitForSeconds(1f);
         isControlEnabled = true;
 
-        // 3초간 무적 상태와 깜빡임 효과
         float invincibilityDuration = 3f;
         float blinkInterval = 0.2f;
-        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        Image image = GetComponent<Image>();
 
         for (float timer = 0; timer < invincibilityDuration; timer += blinkInterval)
         {
-            sprite.color = new Color(1f, 1f, 1f, 0.5f); // 반투명
+            image.color = new Color(1f, 1f, 1f, 0.5f);
             yield return new WaitForSeconds(blinkInterval / 2);
-            sprite.color = new Color(1f, 1f, 1f, 1f);   // 불투명
+            image.color = new Color(1f, 1f, 1f, 1f);
             yield return new WaitForSeconds(blinkInterval / 2);
         }
 
-        // 무적 상태 해제
         isInvincible = false;
-        sprite.color = new Color(1f, 1f, 1f, 1f); // 불투명
+        image.color = new Color(1f, 1f, 1f, 1f);
+
+        OnInvincibilityEnd?.Invoke(); // 무적 상태 종료 시 이벤트 호출
     }
+
+    public void HandleCollision()
+    {
+        if (!isInvincible)
+        {
+            score -= 100;
+            TriggerInvincibility(); // 무적 상태 시작
+            UpdateScoreText();
+        }
+    }
+
+    void UpdateScoreText()
+    {
+        scoreText.text = "Score: " + score;
+    }
+
+
 }

@@ -5,25 +5,30 @@ using UnityEngine;
 
 public class FB_PipeSpawner : MonoBehaviourPun
 {
-    public RectTransform topPipePrefab;         // 위쪽 파이프 프리팹
-    public RectTransform bottomPipePrefab;      // 아래쪽 파이프 프리팹
-    public RectTransform coinPrefab;            // 동전 프리팹
-    public RectTransform speedBoostPrefab;      // 속도 가속 아이템 프리팹
-    public RectTransform canvasRectTransform;   // Canvas의 RectTransform
-    public RectTransform balloonRectTransform;  // 열기구의 RectTransform (충돌 대상)
-    public float spawnInterval = 2f;            // 파이프 소환 간격
-    public float minYPosition = -200f;          // 파이프 Y축 최소 위치 (Canvas 좌표 기준)
-    public float maxYPosition = 200f;           // 파이프 Y축 최대 위치 (Canvas 좌표 기준)
-    public float gapSize = 200f;                // 위-아래 파이프 간의 최소 빈 공간
-    public float itemSpacing = 50f;             // 아이템 간의 간격
-    public TMP_Text scoreText;                  // 점수를 표시할 텍스트
+    public RectTransform topPipePrefab;
+    public RectTransform bottomPipePrefab;
+    public RectTransform coinPrefab;
+    public RectTransform speedBoostPrefab;
+    public RectTransform canvasRectTransform;
+    public RectTransform balloonRectTransform;
+    public float spawnInterval = 2f;
+    public float minYPosition = -200f;
+    public float maxYPosition = 200f;
+    public float gapSize = 200f;
+    public float itemSpacing = 50f;
+    public TMP_Text scoreText;
 
     private int score = 0;
-    private int speedLevel = 1;                 // 속도 단계 (1부터 10까지)
-    private float basePipeSpeed = 200f;         // 파이프의 기본 이동 속도
+    private int speedLevel = 1;
+    private float basePipeSpeed = 200f;
+    private float reversePipeSpeed = 300f; // 충돌 시 오른쪽으로 밀려날 속도
+    private bool isReversing = false; // 파이프와 아이템이 오른쪽으로 이동 중인지 여부
+    private FB_BalloonTeamController balloonController;
 
     private void Start()
     {
+        balloonController = balloonRectTransform.GetComponent<FB_BalloonTeamController>();
+        balloonController.OnInvincibilityEnd += ResetPipeDirection;
         InvokeRepeating("SpawnPipesAndItems", 1f, spawnInterval);
         UpdateScoreText();
     }
@@ -32,23 +37,18 @@ public class FB_PipeSpawner : MonoBehaviourPun
     {
         float randomY = Random.Range(minYPosition, maxYPosition);
 
-        // 상단 파이프 생성
         RectTransform topPipe = Instantiate(topPipePrefab, canvasRectTransform);
         topPipe.anchoredPosition = new Vector2(canvasRectTransform.rect.width / 2, randomY + gapSize / 2);
-        topPipe.gameObject.AddComponent<PipeCollisionHandler>().Setup(this);
+        topPipe.gameObject.AddComponent<PipeCollisionHandler>().Setup(this, balloonController);
 
-        // 하단 파이프 생성
         RectTransform bottomPipe = Instantiate(bottomPipePrefab, canvasRectTransform);
         bottomPipe.anchoredPosition = new Vector2(canvasRectTransform.rect.width / 2, randomY - gapSize / 2);
-        bottomPipe.gameObject.AddComponent<PipeCollisionHandler>().Setup(this);
+        bottomPipe.gameObject.AddComponent<PipeCollisionHandler>().Setup(this, balloonController);
 
-        // 파이프 사이 빈 공간에 아이템 배치
-        float startY = randomY - (gapSize / 2) + itemSpacing;  // 아래쪽 파이프 위쪽에서 시작
-        float endY = randomY + (gapSize / 2) - itemSpacing;    // 위쪽 파이프 아래쪽에서 끝
-
+        float startY = randomY - (gapSize / 2) + itemSpacing;
+        float endY = randomY + (gapSize / 2) - itemSpacing;
         SpawnItemsBetweenPipes(startY, endY);
 
-        // 파이프 이동 시작
         StartCoroutine(MovePipe(topPipe));
         StartCoroutine(MovePipe(bottomPipe));
     }
@@ -57,7 +57,6 @@ public class FB_PipeSpawner : MonoBehaviourPun
     {
         float itemYPosition = startY;
 
-        // 아이템 간격을 두고 파이프 사이에 순서대로 배치
         if (itemYPosition <= endY)
         {
             SpawnItem(coinPrefab, itemYPosition);
@@ -75,20 +74,19 @@ public class FB_PipeSpawner : MonoBehaviourPun
         RectTransform item = Instantiate(itemPrefab, canvasRectTransform);
         item.anchoredPosition = new Vector2(canvasRectTransform.rect.width / 2, yPosition);
 
-        // 아이템 충돌 핸들러 추가
         string itemType = itemPrefab == coinPrefab ? "Coin" : "SpeedBoost";
         item.gameObject.AddComponent<ItemCollisionHandler>().Setup(this, itemType);
 
-        // 아이템 이동 시작
         StartCoroutine(MoveItem(item));
     }
 
     IEnumerator MovePipe(RectTransform pipe)
     {
-        float pipeSpeed = basePipeSpeed + (speedLevel - 1) * 20f; // 속도 단계에 따라 속도 증가
         while (pipe.anchoredPosition.x > -canvasRectTransform.rect.width / 2)
         {
-            pipe.anchoredPosition += Vector2.left * pipeSpeed * Time.deltaTime;
+            float pipeSpeed = isReversing ? reversePipeSpeed : basePipeSpeed;
+            Vector2 direction = isReversing ? Vector2.right : Vector2.left;
+            pipe.anchoredPosition += direction * pipeSpeed * Time.deltaTime;
             yield return null;
         }
         Destroy(pipe.gameObject);
@@ -96,10 +94,11 @@ public class FB_PipeSpawner : MonoBehaviourPun
 
     IEnumerator MoveItem(RectTransform item)
     {
-        float pipeSpeed = basePipeSpeed + (speedLevel - 1) * 20f; // 속도 단계에 따라 아이템 속도 증가
         while (item.anchoredPosition.x > -canvasRectTransform.rect.width / 2)
         {
-            item.anchoredPosition += Vector2.left * pipeSpeed * Time.deltaTime;
+            float pipeSpeed = isReversing ? reversePipeSpeed : basePipeSpeed;
+            Vector2 direction = isReversing ? Vector2.right : Vector2.left;
+            item.anchoredPosition += direction * pipeSpeed * Time.deltaTime;
             yield return null;
         }
         Destroy(item.gameObject);
@@ -109,20 +108,37 @@ public class FB_PipeSpawner : MonoBehaviourPun
     {
         if (itemType == "Coin")
         {
-            score += 200; // 동전 획득 시 점수 증가
+            score += 200;
         }
         else if (itemType == "SpeedBoost")
         {
-            if (speedLevel < 10) speedLevel++; // 속도 레벨 증가 (최대 10단계)
+            if (speedLevel < 10) speedLevel++;
         }
         UpdateScoreText();
     }
 
     public void HandleCollision()
     {
+        if (!isReversing)
+        {
+            StartCoroutine(ReversePipeDirection());  // 파이프와 아이템이 오른쪽으로 밀리는 효과 시작
+        }
+
         score -= 100;
-        speedLevel = 0; // 속도 단계 초기화
+        speedLevel = 0;
         UpdateScoreText();
+    }
+
+    private IEnumerator ReversePipeDirection()
+    {
+        isReversing = true;  // 파이프와 아이템이 오른쪽으로 이동 시작
+        yield return new WaitForSeconds(0.5f);  // 0.5초 동안 오른쪽으로 이동
+        isReversing = false; // 다시 왼쪽으로 이동
+    }
+
+    void ResetPipeDirection()
+    {
+        isReversing = false; // 무적 상태가 끝나면 왼쪽으로 이동하도록 보장
     }
 
     void UpdateScoreText()
@@ -136,18 +152,24 @@ public class PipeCollisionHandler : MonoBehaviour
 {
     private bool hasCollided = false;
     private FB_PipeSpawner pipeSpawner;
+    private FB_BalloonTeamController balloonController;
 
-    public void Setup(FB_PipeSpawner spawner)
+    public void Setup(FB_PipeSpawner spawner, FB_BalloonTeamController balloon)
     {
         pipeSpawner = spawner;
+        balloonController = balloon;
     }
 
     private void Update()
     {
         if (!hasCollided && RectTransformOverlaps(GetComponent<RectTransform>(), pipeSpawner.balloonRectTransform))
         {
-            hasCollided = true;  // 한 번만 충돌 처리
-            pipeSpawner.HandleCollision();
+            if (!balloonController.isInvincible)
+            {
+                hasCollided = true;
+                pipeSpawner.HandleCollision();
+                balloonController.TriggerInvincibility();
+            }
         }
     }
 
@@ -188,7 +210,7 @@ public class ItemCollisionHandler : MonoBehaviour
         {
             hasCollided = true;
             pipeSpawner.HandleItemPickup(itemType);
-            Destroy(gameObject); // 아이템 제거
+            Destroy(gameObject);
         }
     }
 
