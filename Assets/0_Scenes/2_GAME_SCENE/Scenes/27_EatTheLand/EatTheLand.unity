@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 7403835}
   m_Layer: 7
   m_Name: GroundCube (63)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,6 +226,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &7403838
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -314,7 +316,7 @@ GameObject:
   - component: {fileID: 7930783}
   m_Layer: 7
   m_Name: GroundCube (11)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -400,6 +402,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &7930786
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -574,6 +578,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &73710567
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -748,6 +754,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &81277068
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -922,6 +930,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &103657835
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1096,6 +1106,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &105313780
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1270,6 +1282,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &125627297
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1358,7 +1372,7 @@ GameObject:
   - component: {fileID: 145184873}
   m_Layer: 7
   m_Name: GroundCube (43)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1444,6 +1458,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &145184876
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1532,7 +1548,7 @@ GameObject:
   - component: {fileID: 161421966}
   m_Layer: 7
   m_Name: GroundCube (58)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1618,6 +1634,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &161421969
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1792,6 +1810,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &167337407
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1880,7 +1900,7 @@ GameObject:
   - component: {fileID: 176591783}
   m_Layer: 7
   m_Name: GroundCube (66)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1966,6 +1986,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &176591786
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2137,7 +2159,7 @@ GameObject:
   - component: {fileID: 209980951}
   m_Layer: 7
   m_Name: GroundCube (8)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2223,6 +2245,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &209980954
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2311,7 +2335,7 @@ GameObject:
   - component: {fileID: 224697385}
   m_Layer: 7
   m_Name: GroundCube (2)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2397,6 +2421,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &224697388
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2485,7 +2511,7 @@ GameObject:
   - component: {fileID: 225539712}
   m_Layer: 7
   m_Name: GroundCube (7)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2571,6 +2597,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &225539715
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2659,7 +2687,7 @@ GameObject:
   - component: {fileID: 252231487}
   m_Layer: 7
   m_Name: GroundCube (25)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2745,6 +2773,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &252231490
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2919,6 +2949,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &270795499
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3101,7 +3133,7 @@ GameObject:
   - component: {fileID: 301181443}
   m_Layer: 7
   m_Name: GroundCube (28)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3187,6 +3219,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &301181446
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3361,6 +3395,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &329006866
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3449,7 +3485,7 @@ GameObject:
   - component: {fileID: 360054970}
   m_Layer: 7
   m_Name: GroundCube (9)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3535,6 +3571,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &360054973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3623,7 +3661,7 @@ GameObject:
   - component: {fileID: 363688123}
   m_Layer: 7
   m_Name: GroundCube (31)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3709,6 +3747,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &363688126
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3883,6 +3923,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &370913662
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3971,7 +4013,7 @@ GameObject:
   - component: {fileID: 382632371}
   m_Layer: 7
   m_Name: GroundCube (52)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4057,6 +4099,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &382632374
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4231,6 +4275,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &406723366
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4319,7 +4365,7 @@ GameObject:
   - component: {fileID: 430302486}
   m_Layer: 7
   m_Name: GroundCube (18)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4405,6 +4451,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &430302489
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4493,7 +4541,7 @@ GameObject:
   - component: {fileID: 449151537}
   m_Layer: 7
   m_Name: GroundCube (39)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4579,6 +4627,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &449151540
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4753,6 +4803,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &465436508
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4841,7 +4893,7 @@ GameObject:
   - component: {fileID: 476170468}
   m_Layer: 7
   m_Name: GroundCube (65)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4927,6 +4979,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &476170471
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5101,6 +5155,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &480603889
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5275,6 +5331,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &510733745
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5449,6 +5507,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &513310515
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5537,7 +5597,7 @@ GameObject:
   - component: {fileID: 525856567}
   m_Layer: 7
   m_Name: GroundCube (40)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5623,6 +5683,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &525856570
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5711,7 +5773,7 @@ GameObject:
   - component: {fileID: 558845919}
   m_Layer: 7
   m_Name: GroundCube (5)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5797,6 +5859,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &558845922
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5971,6 +6035,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &560271207
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6145,6 +6211,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &574913721
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6319,6 +6387,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &600689813
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6493,6 +6563,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &615097170
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6581,7 +6653,7 @@ GameObject:
   - component: {fileID: 629791382}
   m_Layer: 7
   m_Name: GroundCube (6)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6667,6 +6739,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &629791385
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6841,6 +6915,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &635317083
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7015,6 +7091,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &658329599
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7103,7 +7181,7 @@ GameObject:
   - component: {fileID: 682178167}
   m_Layer: 7
   m_Name: GroundCube (23)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7189,6 +7267,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &682178170
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7277,7 +7357,7 @@ GameObject:
   - component: {fileID: 697627774}
   m_Layer: 7
   m_Name: GroundCube (45)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7363,6 +7443,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &697627777
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7537,6 +7619,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &722891807
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7711,6 +7795,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &733048061
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7799,7 +7885,7 @@ GameObject:
   - component: {fileID: 749103790}
   m_Layer: 7
   m_Name: GroundCube (46)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7885,6 +7971,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &749103793
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7973,7 +8061,7 @@ GameObject:
   - component: {fileID: 751416443}
   m_Layer: 7
   m_Name: GroundCube (57)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8059,6 +8147,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &751416446
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8233,6 +8323,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &763706329
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8407,6 +8499,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &767080030
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8581,6 +8675,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &768485540
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8755,6 +8851,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &773738118
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8825,180 +8923,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773738113}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &799273795
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 799273796}
-  - component: {fileID: 799273802}
-  - component: {fileID: 799273801}
-  - component: {fileID: 799273800}
-  - component: {fileID: 799273799}
-  - component: {fileID: 799273798}
-  - component: {fileID: 799273797}
-  m_Layer: 7
-  m_Name: GroundCube (4)
-  m_TagString: EXPLOSION
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &799273796
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799273795}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1000004, y: 0, z: -45.670002}
-  m_LocalScale: {x: 3, y: 0.4, z: 3}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 909758576}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &799273797
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799273795}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 0
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
---- !u!114 &799273798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799273795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ed3cc4597d0e445faa122e9825e2dfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _boxColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
-  _isDownCast: 0
-  _xzBoxSize: 5.84
-  _yBoxSize: 0.5
-  _lengthFromTransform: 0.2
-  detatchedObj: {fileID: 0}
-  checkLandMasks:
-    serializedVersion: 2
-    m_Bits: 8
-  detatchedObjs: []
---- !u!114 &799273799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799273795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd2817b33f2e828419506206fd30e91c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materials:
-  - {fileID: 2100000, guid: 9df00ecf68efe1647be63d79bf8105ac, type: 2}
-  - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
-  _explsionForwardPower: 5
-  _explsionUpPower: 10
---- !u!65 &799273800
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799273795}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &799273801
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799273795}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 24bdac9d03b1c9041be1f71924c313cd, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &799273802
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799273795}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &800896865
 GameObject:
@@ -9103,6 +9027,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &800896870
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9277,6 +9203,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &813406619
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9451,6 +9379,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &828937919
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9625,6 +9555,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &874844162
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9799,6 +9731,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &887595875
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9887,7 +9821,7 @@ GameObject:
   - component: {fileID: 899979057}
   m_Layer: 7
   m_Name: GroundCube (33)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9973,6 +9907,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &899979060
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10147,6 +10083,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &907889127
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10272,7 +10210,6 @@ Transform:
   - {fileID: 1065445990}
   - {fileID: 767080026}
   - {fileID: 1119313479}
-  - {fileID: 799273796}
   - {fileID: 1945905898}
   - {fileID: 1571182810}
   - {fileID: 1869627697}
@@ -10493,6 +10430,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &909945928
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10667,6 +10606,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &913836826
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10841,6 +10782,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &930287566
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10929,7 +10872,7 @@ GameObject:
   - component: {fileID: 965222755}
   m_Layer: 7
   m_Name: GroundCube (27)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11015,6 +10958,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &965222758
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11189,6 +11134,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &973312604
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11363,6 +11310,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &976485160
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11537,6 +11486,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &980751310
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11711,6 +11662,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &982268099
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11885,6 +11838,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &986442761
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11973,7 +11928,7 @@ GameObject:
   - component: {fileID: 1029308762}
   m_Layer: 7
   m_Name: GroundCube (1)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12017,6 +11972,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1029308757
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12233,6 +12190,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1037983526
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12407,6 +12366,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1065445994
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12495,7 +12456,7 @@ GameObject:
   - component: {fileID: 1076852262}
   m_Layer: 7
   m_Name: GroundCube (69)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12581,6 +12542,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1076852265
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12755,6 +12718,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1109296708
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12843,7 +12808,7 @@ GameObject:
   - component: {fileID: 1109572864}
   m_Layer: 7
   m_Name: GroundCube (19)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12929,6 +12894,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1109572867
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13017,7 +12984,7 @@ GameObject:
   - component: {fileID: 1112423722}
   m_Layer: 7
   m_Name: GroundCube (35)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13103,6 +13070,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1112423725
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13277,6 +13246,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1119313483
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13365,7 +13336,7 @@ GameObject:
   - component: {fileID: 1177967898}
   m_Layer: 7
   m_Name: GroundCube (56)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13451,6 +13422,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1177967901
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13539,7 +13512,7 @@ GameObject:
   - component: {fileID: 1240927335}
   m_Layer: 7
   m_Name: GroundCube (3)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13625,6 +13598,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1240927338
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13799,6 +13774,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1274122252
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13887,7 +13864,7 @@ GameObject:
   - component: {fileID: 1276258213}
   m_Layer: 7
   m_Name: GroundCube (47)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13973,6 +13950,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1276258216
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14061,7 +14040,7 @@ GameObject:
   - component: {fileID: 1302165552}
   m_Layer: 7
   m_Name: GroundCube (51)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14147,6 +14126,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1302165555
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14235,7 +14216,7 @@ GameObject:
   - component: {fileID: 1311808387}
   m_Layer: 7
   m_Name: GroundCube (68)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14321,6 +14302,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1311808390
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14409,7 +14392,7 @@ GameObject:
   - component: {fileID: 1317027799}
   m_Layer: 7
   m_Name: GroundCube (32)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14495,6 +14478,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1317027802
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14583,7 +14568,7 @@ GameObject:
   - component: {fileID: 1325293328}
   m_Layer: 7
   m_Name: GroundCube (67)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14669,6 +14654,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1325293331
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14757,7 +14744,7 @@ GameObject:
   - component: {fileID: 1329111476}
   m_Layer: 7
   m_Name: GroundCube (26)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14843,6 +14830,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1329111479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15017,6 +15006,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1329789912
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15191,6 +15182,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1435546294
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15279,7 +15272,7 @@ GameObject:
   - component: {fileID: 1438703995}
   m_Layer: 7
   m_Name: GroundCube (20)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15365,6 +15358,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1438703998
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15539,6 +15534,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1504109347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15713,6 +15710,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1506422339
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15801,7 +15800,7 @@ GameObject:
   - component: {fileID: 1519237041}
   m_Layer: 7
   m_Name: GroundCube (37)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15887,6 +15886,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1519237044
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15975,7 +15976,7 @@ GameObject:
   - component: {fileID: 1526561723}
   m_Layer: 7
   m_Name: GroundCube (21)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16061,6 +16062,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1526561726
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16149,7 +16152,7 @@ GameObject:
   - component: {fileID: 1534595582}
   m_Layer: 7
   m_Name: GroundCube (12)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16235,6 +16238,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1534595585
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16323,7 +16328,7 @@ GameObject:
   - component: {fileID: 1536452464}
   m_Layer: 7
   m_Name: GroundCube (30)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16409,6 +16414,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1536452467
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16583,6 +16590,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1560209698
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16757,6 +16766,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1567858214
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16845,7 +16856,7 @@ GameObject:
   - component: {fileID: 1571182811}
   m_Layer: 7
   m_Name: GroundCube (42)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16931,6 +16942,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1571182814
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17019,7 +17032,7 @@ GameObject:
   - component: {fileID: 1583166428}
   m_Layer: 7
   m_Name: GroundCube (38)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17105,6 +17118,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1583166431
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17279,6 +17294,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1586674456
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17453,6 +17470,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1597562082
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17627,6 +17646,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1606138573
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17715,7 +17736,7 @@ GameObject:
   - component: {fileID: 1636491238}
   m_Layer: 7
   m_Name: GroundCube (14)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17801,6 +17822,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1636491241
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17889,7 +17912,7 @@ GameObject:
   - component: {fileID: 1647435841}
   m_Layer: 7
   m_Name: GroundCube (55)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17975,6 +17998,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1647435844
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18149,6 +18174,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1654178504
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18323,6 +18350,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1667301234
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18411,7 +18440,7 @@ GameObject:
   - component: {fileID: 1680110756}
   m_Layer: 7
   m_Name: GroundCube (54)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18497,6 +18526,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1680110759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18585,7 +18616,7 @@ GameObject:
   - component: {fileID: 1683932978}
   m_Layer: 7
   m_Name: GroundCube (16)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18671,6 +18702,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1683932981
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18845,6 +18878,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1690881126
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18933,7 +18968,7 @@ GameObject:
   - component: {fileID: 1694722396}
   m_Layer: 7
   m_Name: GroundCube (49)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19019,6 +19054,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1694722399
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19107,7 +19144,7 @@ GameObject:
   - component: {fileID: 1714740962}
   m_Layer: 7
   m_Name: GroundCube (29)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19193,6 +19230,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1714740965
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19282,7 +19321,7 @@ GameObject:
   - component: {fileID: 1718049929}
   m_Layer: 7
   m_Name: GroundCube (15)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19296,7 +19335,7 @@ Transform:
   m_GameObject: {fileID: 1718049921}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1000004, y: 0, z: -45.670002}
+  m_LocalPosition: {x: -6.1000004, y: 0, z: -45.69}
   m_LocalScale: {x: 3, y: 0.4, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19327,7 +19366,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 32
   m_CollisionDetection: 0
 --- !u!114 &1718049924
 MonoBehaviour:
@@ -19344,7 +19383,7 @@ MonoBehaviour:
   _boxColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   _isDownCast: 0
   _xzBoxSize: 5.84
-  _yBoxSize: 0.5
+  _yBoxSize: 5.1
   _lengthFromTransform: 0.2
   detatchedObj: {fileID: 0}
   checkLandMasks:
@@ -19368,6 +19407,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 15
+  _bouncePercent: 0
 --- !u!65 &1718049926
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19452,8 +19493,8 @@ SpringJoint:
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
   serializedVersion: 2
-  m_Spring: 10
-  m_Damper: 0.2
+  m_Spring: 500
+  m_Damper: 20
   m_MinDistance: 0
   m_MaxDistance: 0
   m_Tolerance: 0.025
@@ -19566,6 +19607,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1725255642
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19654,7 +19697,7 @@ GameObject:
   - component: {fileID: 1727944596}
   m_Layer: 7
   m_Name: GroundCube (10)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19740,6 +19783,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1727944599
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19828,7 +19873,7 @@ GameObject:
   - component: {fileID: 1748973660}
   m_Layer: 7
   m_Name: GroundCube (36)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19914,6 +19959,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1748973663
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20088,6 +20135,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1749675441
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20262,6 +20311,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1757351965
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20436,6 +20487,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1817724302
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20524,7 +20577,7 @@ GameObject:
   - component: {fileID: 1837879227}
   m_Layer: 7
   m_Name: GroundCube (60)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20610,6 +20663,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1837879230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20784,6 +20839,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1839511073
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20958,6 +21015,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1845070382
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21132,6 +21191,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1869627701
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21328,6 +21389,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!114 &1895157503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21394,7 +21457,7 @@ GameObject:
   - component: {fileID: 1900644460}
   m_Layer: 7
   m_Name: GroundCube (22)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21480,6 +21543,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1900644463
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21654,6 +21719,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1901356063
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21828,6 +21895,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1902172159
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22097,7 +22166,7 @@ MonoBehaviour:
   _dashDurationTime: 0.1
   _jumpPower: 10
   explosionForwardPower: 5
-  explosionUpPower: 50
+  explosionUpPower: 20
   isDashable: 1
   isControllerable: 1
 --- !u!1 &1931863720
@@ -22117,7 +22186,7 @@ GameObject:
   - component: {fileID: 1931863722}
   m_Layer: 7
   m_Name: GroundCube (34)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22203,6 +22272,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1931863725
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22377,6 +22448,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1938105583
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22551,6 +22624,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1945905902
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22639,7 +22714,7 @@ GameObject:
   - component: {fileID: 1961603091}
   m_Layer: 7
   m_Name: GroundCube (44)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22725,6 +22800,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1961603094
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22899,6 +22976,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1972723014
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22987,7 +23066,7 @@ GameObject:
   - component: {fileID: 1978320509}
   m_Layer: 7
   m_Name: GroundCube (17)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23073,6 +23152,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1978320512
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23161,7 +23242,7 @@ GameObject:
   - component: {fileID: 1985888736}
   m_Layer: 7
   m_Name: GroundCube (62)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23247,6 +23328,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1985888739
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23421,6 +23504,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1994250425
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23595,6 +23680,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &1999996409
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23769,6 +23856,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &2001853300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23857,7 +23946,7 @@ GameObject:
   - component: {fileID: 2042754331}
   m_Layer: 7
   m_Name: GroundCube (50)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23943,6 +24032,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &2042754334
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24117,6 +24208,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &2043005157
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24205,7 +24298,7 @@ GameObject:
   - component: {fileID: 2043354002}
   m_Layer: 7
   m_Name: GroundCube (48)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24291,6 +24384,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &2043354005
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24465,6 +24560,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &2052234296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24639,6 +24736,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &2064789974
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24819,7 +24918,7 @@ GameObject:
   - component: {fileID: 2102815309}
   m_Layer: 7
   m_Name: GroundCube (24)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24905,6 +25004,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &2102815312
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24993,7 +25094,7 @@ GameObject:
   - component: {fileID: 2125572578}
   m_Layer: 7
   m_Name: GroundCube (13)
-  m_TagString: EXPLOSION
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25079,6 +25180,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &2125572581
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25253,6 +25356,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 80460a1263ebc4f44a7ac2262486d185, type: 2}
   _explsionForwardPower: 5
   _explsionUpPower: 10
+  _bounceForce: 0
+  _bouncePercent: 0
 --- !u!65 &2138317743
 BoxCollider:
   m_ObjectHideFlags: 0
