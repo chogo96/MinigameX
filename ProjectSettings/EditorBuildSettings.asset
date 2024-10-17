@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Scenes/2_GAME_SCENE/Scenes/3_PlaneIO/Plane.unity
     guid: e7bc4c7571e8d4ddbb742304b3cc1755
+  - enabled: 1
+    path: Assets/0_Scenes/2_GAME_SCENE/Scenes/26_Flag/Flag.unity
+    guid: 379f4260a651b4e6aaffbf6fae532ec9
   m_configObjects: {}

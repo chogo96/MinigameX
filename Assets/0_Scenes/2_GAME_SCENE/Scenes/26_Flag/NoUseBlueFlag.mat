@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BlueFlag
+  m_Name: NoUseBlueFlag
   m_Shader: {fileID: 4800000, guid: 117561033ef944c73b94832f9c6e843c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
