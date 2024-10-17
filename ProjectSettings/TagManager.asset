@@ -10,6 +10,7 @@ TagManager:
   - Goal
   - Mole
   - Item
+  - EXPLOSION
   layers:
   - Default
   - TransparentFX

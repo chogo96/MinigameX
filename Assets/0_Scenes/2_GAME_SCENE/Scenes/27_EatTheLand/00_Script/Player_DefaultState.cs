@@ -7,20 +7,21 @@ using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class Player_DefaultState : PlayerBaseState
 {
- 
+
 
 
     public Vector3 _movDir;
     public float _movSpeed;
     public float _rotSpeed;
     public float _yVelocity;
- 
+
     public float _jumpPower;
 
 
-    
+
     private bool _isDashable;
     public PlayerInputAction _input;
     public UpDownBoxCheck _upDownBoxCheck;
@@ -35,19 +36,19 @@ public class Player_DefaultState : PlayerBaseState
         _input = control._input ?? throw new System.NullReferenceException("PlayerInputAction is null");
         _rb = control._rb ?? throw new System.NullReferenceException("Rigidbody is null");
 
-        _upDownBoxCheck = control._upDownBoxCheck;        
+        _upDownBoxCheck = control._upDownBoxCheck;
         _gravity = control._gravity;
-        _input= control._input;
+        _input = control._input;
         _rb = control._rb;
 
-        _movDir= control._movDir;
-        _movSpeed= control._movSpeed;
-        _rotSpeed= control._rotSpeed;
-        _yVelocity= control._yVelocity;
+        _movDir = control._movDir;
+        _movSpeed = control._movSpeed;
+        _rotSpeed = control._rotSpeed;
+        _yVelocity = control._yVelocity;
 
-        _jumpPower= control._jumpPower;
+        _jumpPower = control._jumpPower;
     }
- 
+
 
 
     //  움직임을 구현하는 키 받아서 이동
@@ -55,6 +56,9 @@ public class Player_DefaultState : PlayerBaseState
     {
         Vector3 _inputDir = context.ReadValue<Vector3>();
         _movDir = new Vector3(_inputDir.x, 0, _inputDir.z).normalized;
+
+
+
         //Debug.Log(_movDir);
 
     }
@@ -64,11 +68,16 @@ public class Player_DefaultState : PlayerBaseState
         if (!_isDashable)
         {
             _yVelocity = _jumpPower;
-        }    
+        }
         else
         {
             Debug.Log("대쉬한다");
-            _control.ChangeState(EPlayer.DASH);
+            if(_control.isDashable)
+            {
+                _control.ChangeState(EPlayer.DASH);
+                _control.isDashable = false;
+
+            }
         }
     }
 
@@ -77,26 +86,60 @@ public class Player_DefaultState : PlayerBaseState
 
     void Move()
     {
-
         Vector3 moveVector = Vector3.zero;
+
+        // 이동 방향 벡터 계산
         if (_movDir.sqrMagnitude > 0)
         {
-            moveVector = _movDir .normalized* _movSpeed * Time.deltaTime;
+            moveVector = _movDir.normalized * _movSpeed * Time.deltaTime;
         }
-        if (!_upDownBoxCheck.CheckBox())
+
+        // 현재 플레이어가 땅에 있는지 확인
+        bool isOnGround = _upDownBoxCheck.CheckBox();
+        Transform obj;
+        if(_upDownBoxCheck.detatchedObj != null)
         {
-            _yVelocity += _gravity.OnGravity();
+            obj = _upDownBoxCheck.detatchedObj.transform;
+        }
+        else
+        {
+            obj = null;
+        }
+
+        if (!isOnGround)  // 공중에 있을 때
+        {
+            _yVelocity += _gravity.OnGravity();  // 중력 적용
             _isDashable = true;
         }
-        else if (_upDownBoxCheck.CheckBox() && _yVelocity <= 0)
+ 
+        else if(isOnGround && _yVelocity <= 0) // 일반 착지 처리
         {
-            _isDashable = false;
             _yVelocity = 0;
+            _isDashable = false;
+            _control.isControllerable= true;
+            _rb.freezeRotation = false;
+            _control.isDashable = true;
         }
-        moveVector.y = _yVelocity;
-        _rb.velocity = moveVector;
+        if(isOnGround && obj.gameObject.CompareTag("EXPLOSION") )
+        {
+            _yVelocity = _control.explosionUpPower;
+            _control.isControllerable= false;
+        }
 
-        // Rotate();
+        // y축 속도 적용 (중력 + 폭발 속도)
+        moveVector.y = _yVelocity;
+
+        // 제어 가능한 경우에만 속도 적용
+        if (_control.isControllerable)
+        {
+            _rb.velocity = moveVector;
+        }
+        else
+        {
+            _rb.freezeRotation = true;
+            //_yVelocity += _gravity.OnGravity();  // 중력 적용
+            _rb.velocity = _control.transform.forward * _control.explosionForwardPower + new Vector3(0, _yVelocity, 0);
+        }
     }
 
     //  회전
@@ -129,8 +172,15 @@ public class Player_DefaultState : PlayerBaseState
     public override void OnStateUpdate()
     {
         Debug.Log("움직이는 중");
+
         Move();
-        Rotate();
+        if(_control.isControllerable)
+        {
+            Rotate();
+
+        }
+
+
     }
 
     public override void OnStateExit()
@@ -146,7 +196,7 @@ public class Player_DefaultState : PlayerBaseState
         _input.Player.Jump.performed -= OnJump;
         _input.Player.Disable();
         //  튀어오르는 것 방지용
-        _yVelocity= 0;
+        _yVelocity = 0;
 
     }
 }

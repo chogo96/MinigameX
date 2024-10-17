@@ -18,7 +18,6 @@ public class PlayerControl : MonoBehaviour
     public Gravity _gravity;
     public Rigidbody _rb;
 
-
     public Vector3 _movDir;
     public float _movSpeed;
     public float _rotSpeed;
@@ -27,6 +26,13 @@ public class PlayerControl : MonoBehaviour
     public float _dashDurationTime;
 
     public float _jumpPower;
+
+    public float explosionForwardPower; 
+    public float explosionUpPower;
+
+    public bool isDashable;
+    public bool isControllerable;
+    public Coroutine coroutine;
 
     private void Awake()
     {
@@ -39,6 +45,7 @@ public class PlayerControl : MonoBehaviour
         {
             { EPlayer.NORMAL, new Player_DefaultState(this) },
             {EPlayer.DASH, new Player_DashState(this) },
+            {EPlayer.EXPLOSION, new Player_ExplosionState(this) }
         };
 
       
@@ -60,20 +67,34 @@ public class PlayerControl : MonoBehaviour
     {
         Debug.Log(CurrentState);
 
-        CurrentState?.OnStateUpdate();
+        //CurrentState?.OnStateUpdate();
+        if(CurrentState != null)
+        {
+            CurrentState.OnStateUpdate();
+        }
     }
 
     public void ChangeState(EPlayer newState)
     {
         if(CurrentState != null && _states[newState] == CurrentState)
         {
-            Debug.LogWarning("Trying to switch to the same State.");
+            Debug.LogWarning("Trying to switch to the same State." + CurrentState);
             return;
         }
-        CurrentState?.OnStateExit();    //  기존 상태 종료
+
+        if(CurrentState != null)//  기존 상태 종료
+        {
+            CurrentState.OnStateExit();
+        }
 
         CurrentState = _states[newState];   //  새 상태로 전환
 
         CurrentState.OnStateEnter();    //  새 상태 시작
     }
+
+    public void StartCorutine()
+    {
+        StartCoroutine(coroutine.ToString());
+    }
+
 }

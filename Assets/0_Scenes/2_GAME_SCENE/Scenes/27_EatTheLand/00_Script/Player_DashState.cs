@@ -33,7 +33,6 @@ public class Player_DashState : PlayerBaseState
     {
         _time = 0;
         //_durationTime = 3;
-        
         Debug.Log("대쉬 시작!!");
         //_yVelocity = _gravity.OnGravity();
         _dashDir = transform.forward.normalized * _dashPower;
@@ -50,7 +49,7 @@ public class Player_DashState : PlayerBaseState
             //_rb.AddForce(transform.forward * 300, ForceMode.Impulse);
            
             _control.ChangeState(EPlayer.NORMAL);
-            
+
             Debug.Log("대쉬 중 1");
 
         }

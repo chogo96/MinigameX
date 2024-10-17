@@ -18,7 +18,7 @@ public class UpDownBoxCheck : MonoBehaviour
     public Transform detatchedObj;
 
     [SerializeField] private LayerMask checkLandMasks;
-    [SerializeField] private Collider[] detatchedObjs;
+    public Collider[] detatchedObjs;
 
 
     private void UpdateCheckBoxParameter()
@@ -35,11 +35,11 @@ public class UpDownBoxCheck : MonoBehaviour
         }
         _checkBoxCenter = transform.position + castDir * _lengthFromTransform;
     }
-
+    public Ray hit;
     public bool CheckBox()
     {
         UpdateCheckBoxParameter();
-        detatchedObjs = Physics.OverlapBox(_checkBoxCenter, _checkBox * 0.25f, transform.rotation, checkLandMasks);
+        detatchedObjs = Physics.OverlapBox(_checkBoxCenter, _checkBox * 0.25f, transform.rotation,  checkLandMasks);
 
         if (detatchedObjs.Length == 0)
         {
@@ -66,4 +66,6 @@ public class UpDownBoxCheck : MonoBehaviour
         Gizmos.color = _boxColor;
         Gizmos.DrawCube(_checkBoxCenter, _checkBox /2);
     }
+
+
 }
