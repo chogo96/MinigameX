@@ -11,6 +11,7 @@ TagManager:
   - Mole
   - Item
   - EXPLOSION
+  - WIND
   layers:
   - Default
   - TransparentFX

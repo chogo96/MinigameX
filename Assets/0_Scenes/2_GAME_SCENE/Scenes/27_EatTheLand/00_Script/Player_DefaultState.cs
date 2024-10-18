@@ -97,9 +97,9 @@ public class Player_DefaultState : PlayerBaseState
         // 현재 플레이어가 땅에 있는지 확인
         bool isOnGround = _upDownBoxCheck.CheckBox();
         Transform obj;
-        if(_upDownBoxCheck.detatchedObj != null)
+        if(_upDownBoxCheck.detectedObj != null)
         {
-            obj = _upDownBoxCheck.detatchedObj.transform;
+            obj = _upDownBoxCheck.detectedObj.transform;
         }
         else
         {
@@ -132,7 +132,7 @@ public class Player_DefaultState : PlayerBaseState
         // 제어 가능한 경우에만 속도 적용
         if (_control.isControllerable)
         {
-            _rb.velocity = moveVector;
+            _rb.velocity = moveVector + _control.windDir;
         }
         else
         {
@@ -164,7 +164,7 @@ public class Player_DefaultState : PlayerBaseState
 
         _control._yVelocity = 0;
         _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
-        Debug.Log(_control._yVelocity);
+        //Debug.Log(_control._yVelocity);
         //_movDir = _movDir * _movSpeed * Time.fixedDeltaTime;
 
     }
@@ -197,6 +197,6 @@ public class Player_DefaultState : PlayerBaseState
         _input.Player.Disable();
         //  튀어오르는 것 방지용
         _yVelocity = 0;
-
     }
+
 }

@@ -19,6 +19,7 @@ public class PlayerControl : MonoBehaviour
     public Rigidbody _rb;
 
     public Vector3 _movDir;
+    public Vector3 windDir;
     public float _movSpeed;
     public float _rotSpeed;
     public float _yVelocity;
@@ -29,6 +30,8 @@ public class PlayerControl : MonoBehaviour
 
     public float explosionForwardPower; 
     public float explosionUpPower;
+
+    public float windPower;
 
     public bool isDashable;
     public bool isControllerable;
@@ -44,8 +47,8 @@ public class PlayerControl : MonoBehaviour
         _states = new Dictionary<EPlayer, PlayerBaseState>
         {
             { EPlayer.NORMAL, new Player_DefaultState(this) },
-            {EPlayer.DASH, new Player_DashState(this) },
-            {EPlayer.EXPLOSION, new Player_ExplosionState(this) }
+            { EPlayer.DASH, new Player_DashState(this) },
+            { EPlayer.EXPLOSION, new Player_ExplosionState(this) }
         };
 
       
@@ -61,6 +64,7 @@ public class PlayerControl : MonoBehaviour
     {
 
         ChangeState(EPlayer.NORMAL);
+        //Physics.gravity = new Vector3(0, -20, 0);
     }
 
     private void Update()
@@ -97,4 +101,25 @@ public class PlayerControl : MonoBehaviour
         StartCoroutine(coroutine.ToString());
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.CompareTag("WIND"))
+        {
+            Debug.Log("¹¹°¡ ´ê¾Ò´Ù");
+            Wind _wind = other.GetComponent<Wind>();
+            Transform windEnd = _wind.wind_End;
+            float wind = (windEnd.position - transform.position).magnitude * windPower;
+            Vector3 tmp = windEnd.position - transform.position;
+            windDir = new Vector3(tmp.x, 0, tmp.z).normalized * wind * Time.fixedDeltaTime;
+            Debug.Log(wind);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("WIND"))
+        {
+            windDir = Vector3.zero;
+        }
+    }
 }
