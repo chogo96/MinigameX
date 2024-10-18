@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Scenes/2_GAME_SCENE/Scenes/3_PlaneIO/Plane.unity
     guid: e7bc4c7571e8d4ddbb742304b3cc1755
+  - enabled: 1
+    path: Assets/0_Scenes/2_GAME_SCENE/Scenes/4_Flappy_Bird/Flappy_Bird.unity
+    guid: 52a76ff00a3ecc2418da98841cecfda7
   m_configObjects: {}

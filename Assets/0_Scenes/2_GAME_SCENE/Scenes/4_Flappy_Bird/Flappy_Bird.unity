@@ -929,7 +929,7 @@ MonoBehaviour:
   minYPosition: -100
   maxYPosition: 100
   gapSize: 600
-  itemSpacing: 200
+  itemSpacing: 80
   scoreText: {fileID: 186198498}
 --- !u!4 &1113303585
 Transform:
@@ -1162,6 +1162,7 @@ MonoBehaviour:
   - {fileID: 187719146}
   - {fileID: 586309229}
   scoreText: {fileID: 186198498}
+  isInvincible: 0
 --- !u!1 &1850292954
 GameObject:
   m_ObjectHideFlags: 0

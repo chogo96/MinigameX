@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2250,7 +2250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5685408576094124599, guid: f8d45eb86d5ff4028a7e2a7088f654bf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5685408576094124599, guid: f8d45eb86d5ff4028a7e2a7088f654bf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2904,7 +2904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5685408576094124599, guid: f8d45eb86d5ff4028a7e2a7088f654bf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 317
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 5685408576094124599, guid: f8d45eb86d5ff4028a7e2a7088f654bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2920,7 +2920,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8254290779075019578, guid: f8d45eb86d5ff4028a7e2a7088f654bf, type: 3}
       propertyPath: m_text
-      value: 4
+      value: FlappyBird
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254290779075019578, guid: f8d45eb86d5ff4028a7e2a7088f654bf, type: 3}
+      propertyPath: m_fontSize
+      value: 26.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254290779075019578, guid: f8d45eb86d5ff4028a7e2a7088f654bf, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 26.11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
