@@ -36,6 +36,7 @@ public class UpDownBoxCheck : MonoBehaviour
         _checkBoxCenter = transform.position + castDir * _lengthFromTransform;
     }
     public Ray hit;
+    
     public bool CheckBox()
     {
         UpdateCheckBoxParameter();
@@ -60,6 +61,7 @@ public class UpDownBoxCheck : MonoBehaviour
     {
         CheckBox();
     }
+
     void OnDrawGizmos()
     {
         UpdateCheckBoxParameter();

@@ -1,51 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player_EatTheLand_DefaultState : Player_EatTheLand_BaseState
-{    
-    public Player_EatTheLand_DefaultState(Player_EatTheLand player) : base(player){}
-    private Rigidbody _rb;
+public class EatTheLand_Player : MonoBehaviour
+{
+    private Rigidbody _rb => GetComponent<Rigidbody>();
     private PlayerInputAction _input;
     private UpDownBoxCheck _upDownCheckBox => GetComponent<UpDownBoxCheck>();
+
 
     private Vector3 _inputDir;
     public Vector3 moveDir;
 
-    
     [SerializeField] private float _moveSpeed = 7;
     [SerializeField] private float _gravity = 20;
     [SerializeField] private float _jumpPower = 10;
     [SerializeField] private float _dashPower = 5;
-    [SerializeField] private float _groundCastLength =2;
+    [SerializeField] private float _groundCastLength = 2;
 
     [SerializeField] private bool _isDash;
+
     void Awake()
     {
         _input = new PlayerInputAction();
-        _rb = GetComponent<Rigidbody>();
-        _isDash = true;
-        Physics.gravity = new Vector3(0,_gravity,0);
-
     }
     void OnEnable()
     {
-        _input.Enable();
+        _input.Player.Enable();
         _input.Player.Move3D.performed += OnMove;
         _input.Player.Move3D.canceled += OnMove;
         _input.Player.Jump.performed += OnJump;
     }
-    public override void OnStateEnter()
+    void OnDisable()
     {
-        _input.Enable();
-        _input.Player.Move3D.performed += OnMove;
-        _input.Player.Move3D.canceled += OnMove;
-        _input.Player.Jump.performed += OnJump;
+        _input.Player.Move3D.performed -= OnMove;
+        _input.Player.Move3D.canceled -= OnMove;
+        _input.Player.Jump.performed -= OnJump;
+        _input.Player.Enable();
     }
-
+    void Start()
+    {
+        _isDash = true;
+        Physics.gravity = new Vector3(0, _gravity, 0);
+    }
     private void OnMove(InputAction.CallbackContext context)
     {
         _inputDir = context.ReadValue<Vector3>();
@@ -56,13 +54,13 @@ public class Player_EatTheLand_DefaultState : Player_EatTheLand_BaseState
     private void OnJump(InputAction.CallbackContext context)
     {
         Debug.Log("점프를 했다");
-        if(_upDownCheckBox.CheckBox())
+        if (_upDownCheckBox.CheckBox())
         {
             _rb.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
             _isDash = true;
             Debug.Log("점프");
         }
-        else if(!_upDownCheckBox.CheckBox() && _isDash )
+        else if (!_upDownCheckBox.CheckBox() && _isDash)
         {
             _rb.AddForce(transform.forward * _dashPower, ForceMode.Impulse);
             _isDash = false;
@@ -77,22 +75,9 @@ public class Player_EatTheLand_DefaultState : Player_EatTheLand_BaseState
         _rb.Move(transform.position + moveDir, Quaternion.identity);
     }
 
-    
-    public override void OnStateUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        // Move();
-    }
-
-    public override void OnStateExit()
-    {
-        _input.Player.Move3D.performed -= OnMove;
-        _input.Player.Move3D.canceled -= OnMove;
-        _input.Player.Jump.performed -= OnJump;
-        _input.Disable();
-    }
-
-   void Update()
-   {
         Move();
-   }
+    }
 }
