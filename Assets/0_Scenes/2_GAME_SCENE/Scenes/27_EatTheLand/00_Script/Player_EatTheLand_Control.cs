@@ -10,7 +10,7 @@ public class Player_EatTheLand_Control : Player_EatTheLand
     {
         _curState = EPlayer_State.DEFAULT;
 
-        fsm = new Player_EatTheLand_FSM(new Player_EatTheLand_DefaultState(this));
+        // fsm = new Player_EatTheLand_FSM(new Player_EatTheLand_DefaultState(this));
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class Player_EatTheLand_Control : Player_EatTheLand
         switch (_curState)
         {
             case EPlayer_State.DEFAULT:
-                fsm.ChangeState(new Player_EatTheLand_DefaultState(this));
+                // fsm.ChangeState(new Player_EatTheLand_DefaultState(this));
                 break;
             case EPlayer_State.EXPLOSION:
                 fsm.ChangeState(new Player_EatTheLand_ExplosionState(this));

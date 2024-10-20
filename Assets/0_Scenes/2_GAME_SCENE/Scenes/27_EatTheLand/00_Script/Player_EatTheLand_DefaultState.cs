@@ -5,22 +5,38 @@ using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player_EatTheLand_DefaultState : Player_EatTheLand_BaseState
-{    
-    public Player_EatTheLand_DefaultState(Player_EatTheLand player) : base(player){}
+public enum ETL_State
+{
+    NORMAL,
+    SPRING,
+    FREEZE
+}
+public class Player_EatTheLand_DefaultState : MonoBehaviour
+{
+
+    private ETL_State _curState;
+    public void ChangeState(ETL_State _state)
+    {
+        _curState = _state;
+    }
     private Rigidbody _rb;
     private PlayerInputAction _input;
     private UpDownBoxCheck _upDownCheckBox => GetComponent<UpDownBoxCheck>();
 
     private Vector3 _inputDir;
     public Vector3 moveDir;
+    public Vector3 externalVect;
 
-    
     [SerializeField] private float _moveSpeed = 7;
     [SerializeField] private float _gravity = 20;
     [SerializeField] private float _jumpPower = 10;
     [SerializeField] private float _dashPower = 5;
-    [SerializeField] private float _groundCastLength =2;
+    [SerializeField] private float _groundCastLength = 2;
+
+    [SerializeField] private float _springFwdPower;
+    [SerializeField] private float _springUpPower;
+
+    [SerializeField] private float _freezeTime;
 
     [SerializeField] private bool _isDash;
     void Awake()
@@ -28,7 +44,8 @@ public class Player_EatTheLand_DefaultState : Player_EatTheLand_BaseState
         _input = new PlayerInputAction();
         _rb = GetComponent<Rigidbody>();
         _isDash = true;
-        Physics.gravity = new Vector3(0,_gravity,0);
+        externalVect = Vector3.zero;
+        Physics.gravity = new Vector3(0, _gravity, 0);
 
     }
     void OnEnable()
@@ -38,12 +55,12 @@ public class Player_EatTheLand_DefaultState : Player_EatTheLand_BaseState
         _input.Player.Move3D.canceled += OnMove;
         _input.Player.Jump.performed += OnJump;
     }
-    public override void OnStateEnter()
+    void OnDisable()
     {
-        _input.Enable();
-        _input.Player.Move3D.performed += OnMove;
-        _input.Player.Move3D.canceled += OnMove;
-        _input.Player.Jump.performed += OnJump;
+        _input.Player.Move3D.performed -= OnMove;
+        _input.Player.Move3D.canceled -= OnMove;
+        _input.Player.Jump.performed -= OnJump;
+        _input.Disable();
     }
 
     private void OnMove(InputAction.CallbackContext context)
@@ -56,13 +73,13 @@ public class Player_EatTheLand_DefaultState : Player_EatTheLand_BaseState
     private void OnJump(InputAction.CallbackContext context)
     {
         Debug.Log("점프를 했다");
-        if(_upDownCheckBox.CheckBox())
+        if (_upDownCheckBox.CheckBox())
         {
             _rb.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
             _isDash = true;
             Debug.Log("점프");
         }
-        else if(!_upDownCheckBox.CheckBox() && _isDash )
+        else if (!_upDownCheckBox.CheckBox() && _isDash)
         {
             _rb.AddForce(transform.forward * _dashPower, ForceMode.Impulse);
             _isDash = false;
@@ -74,25 +91,43 @@ public class Player_EatTheLand_DefaultState : Player_EatTheLand_BaseState
     {
         moveDir = _inputDir.normalized * _moveSpeed * Time.deltaTime;
         // _rb.velocity = moveDir;
-        _rb.Move(transform.position + moveDir, Quaternion.identity);
+        _rb.Move(transform.position + moveDir + externalVect, Quaternion.identity);
     }
 
-    
-    public override void OnStateUpdate()
+    void Update()
     {
-        // Move();
+
+        switch (_curState)
+        {
+            case ETL_State.NORMAL:
+                Move();
+                break;
+            case ETL_State.SPRING:
+                
+                OnSpring();
+                break;
+            case ETL_State.FREEZE:
+                Debug.Log("얼었다");
+                OnFreeze();
+                break;
+        }
     }
 
-    public override void OnStateExit()
+    void OnSpring()
     {
-        _input.Player.Move3D.performed -= OnMove;
-        _input.Player.Move3D.canceled -= OnMove;
-        _input.Player.Jump.performed -= OnJump;
-        _input.Disable();
+        _rb.AddForce(transform.forward * _springFwdPower + transform.up * _springUpPower, ForceMode.Impulse);
+        ChangeState(ETL_State.NORMAL);
     }
 
-   void Update()
-   {
-        Move();
-   }
+    void OnFreeze()
+    {
+        float _time = 0;
+        _time += Time.deltaTime;
+        _rb.velocity = Vector3.zero;
+        if(_time >= _freezeTime)
+        {
+            ChangeState(ETL_State.NORMAL);
+        }
+    }
+
 }

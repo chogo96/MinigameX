@@ -69,5 +69,5 @@ public class UpDownBoxCheck : MonoBehaviour
         Gizmos.DrawCube(_checkBoxCenter, _checkBox /2);
     }
 
-
+    
 }
