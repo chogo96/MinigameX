@@ -20,15 +20,24 @@ public class GameManagerFlag : GameManager
     private int speedPoint = 30;
     [SerializeField] TextMeshProUGUI PointCounter;
     [SerializeField] TextMeshProUGUI RoundCounter;
+
+    [SerializeField] AudioClip CorrectSound;
+    [SerializeField] AudioClip InCorrectSound;
+
     PlayerFlag[] playerFlags;
     public FlagRound nowFlagRound;
     [SerializeField] GameObject[] PlayersPos;
+    [SerializeField] GameObject TimeGauge;
+    [SerializeField]
+    float RoundTime = 1.0f;
+    float NowRoundTime = 0f;
+    float RoundIdleTime = 0.5f;
     private PhotonView photonView;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
 
-        playerFlags = FindObjectsByType<PlayerFlag>(FindObjectsSortMode.None);
+
         nowFlagRound = null;
         photonView = GetComponent<PhotonView>();
         GameInit();
@@ -61,6 +70,7 @@ public class GameManagerFlag : GameManager
             // playerNumber에 따라 리소스에서 프리팹을 가져와서 생성
             InstantiatePlayer();
         }
+        playerFlags = FindObjectsByType<PlayerFlag>(FindObjectsSortMode.None);
         // PlayerGenerate
         StartCoroutine(ChangeStateAfterDelay(3f));
     }
@@ -100,30 +110,62 @@ public class GameManagerFlag : GameManager
     }
     IEnumerator GamePlay(FlagRound[] flagRounds)
     {
-
-
         Debug.Log("GamePlay");
-        //UI변경,
+        // UI변경
         for (int i = 0; i < flagRounds.Length; i++)
         {
+            TimeGauge.transform.localScale = Vector3.one;
             RoundCounter.text = "Round : " + nowRound;
             Debug.Log($"{nowRound}번째 라운드 시작!");
             nowFlagRound = flagRounds[i];
+
+
+
             // 클립 재생 시작
             yield return StartCoroutine(PlayClipsSequentially(flagRounds[i].roundClips, i));
 
-            // 2초 대기
-            yield return new WaitForSeconds(2);
-            CheckAnswerAndGetPoint();
+            // NowRoundTime을 RoundTime으로 초기화
+            NowRoundTime = RoundTime;
 
+            // 타임 게이지 업데이트를 위한 코루틴 시작
+            yield return StartCoroutine(UpdateTimeGauge());
+
+            CheckAnswerAndGetPoint();
+            // 2초 대기
+            yield return new WaitForSeconds(RoundIdleTime);
+            Debug.Log("라운드 종료2");
+
+
+            // 플레이어 리셋
             PlayersReset();
             nowRound++;
-
-
         }
-        yield return null;
 
+        yield return null;
     }
+
+    IEnumerator UpdateTimeGauge()
+    {
+        Vector3 initialScale = TimeGauge.transform.localScale;
+
+        // 시간이 0 이하가 될 때까지 실행
+        while (NowRoundTime > 0)
+        {
+            NowRoundTime -= Time.deltaTime;
+
+            // 남은 시간에 비례하여 TimeGauge의 X 크기를 줄임
+            float timeRatio = NowRoundTime / RoundTime;
+            TimeGauge.transform.localScale = new Vector3(initialScale.x * timeRatio, initialScale.y, initialScale.z);
+
+            yield return null;  // 다음 프레임까지 대기
+        }
+
+        // 타임 종료 시 처리
+        NowRoundTime = 0;
+        Debug.Log("라운드 종료");
+    }
+
+
     void PlayersReset()
     {
         foreach (PlayerFlag player in playerFlags)
@@ -164,11 +206,14 @@ public class GameManagerFlag : GameManager
             Debug.Log("정답입니다! +point50");
             nowTeamAPoint += memberPoint;
             PointCounter.text = nowTeamAPoint.ToString();
+            audioSource.PlayOneShot(CorrectSound);
         }
         else
         {
             Debug.Log($"오답! +Answer: {nowFlagRound.AnswerBlueFlagState}, {nowFlagRound.AnswerWhiteFlagState}\n" +
             $"You: {playerFlag.blueFlagState} , {playerFlag.whiteFlagState}");
+            audioSource.PlayOneShot(InCorrectSound);
+
         }
     }
 }

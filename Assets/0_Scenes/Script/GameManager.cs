@@ -40,6 +40,12 @@ public class GameManager : MonoBehaviour, IGameManager
         // 게임 종료 로직 구현
     }
 
+
+    public virtual void OnTimerEnd()
+    {
+        Debug.Log("OnTimerEnd");
+        // 게임 종료 로직 구현
+    }
     // Start는 유니티에서 스크립트가 활성화될 때 호출
     void Start()
     {
