@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine;
@@ -27,11 +28,18 @@ public class RoomData : MonoBehaviour
     {
         roomInfoText = GetComponentInChildren<TMP_Text>();     
     }
-
+    
     void OnEnterRoom(string roomName)
     {
         RoomOptions ro = new RoomOptions();
         ro.IsOpen = true;
+        ro.MaxPlayers = 6;
         
+        
+    }
+
+    public void JoinRoom()
+    {
+        PhotonNetwork.JoinRoom(_roomInfo.Name);
     }
 }

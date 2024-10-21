@@ -5,6 +5,7 @@ using Photon.Pun;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PDH_Lobby_Manager : MonoBehaviourPunCallbacks
@@ -35,7 +36,13 @@ public class PDH_Lobby_Manager : MonoBehaviourPunCallbacks
         PhotonNetwork.NickName = inputNick;
         _notice.text = "";
         Debug.Log("닉네임은 " + PhotonNetwork.NickName);
-        PhotonNetwork.JoinLobby();        
+        PhotonNetwork.JoinLobby();
 
     }
+
+    public override void OnJoinedLobby()
+    {
+        SceneManager.LoadScene("PDH_LOBBY_TEST");
+    }
+    public Scene lobbyScene;
 }

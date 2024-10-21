@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Scenes/2_GAME_SCENE/Scenes/27_EatTheLand/TEST/PDH_MakeNickName_TEST.unity
     guid: 169595d9236c14ef28cec902d97665bb
+  - enabled: 1
+    path: Assets/0_Scenes/2_GAME_SCENE/Scenes/27_EatTheLand/TEST/PDH_LOBBY_TEST.unity
+    guid: 6c7b770428972405ebca516de7734fc4
   m_configObjects: {}
