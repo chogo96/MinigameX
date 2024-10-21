@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEditor.Callbacks;
 using UnityEngine;
@@ -13,7 +14,7 @@ public enum ETL_State
 }
 public class Player_EatTheLand_DefaultState : MonoBehaviour
 {
-
+    public bool isControlable;
     private ETL_State _curState;
     public void ChangeState(ETL_State _state)
     {
@@ -81,6 +82,7 @@ public class Player_EatTheLand_DefaultState : MonoBehaviour
         }
         else if (!_upDownCheckBox.CheckBox() && _isDash)
         {
+            // isControlable = false;
             _rb.AddForce(transform.forward * _dashPower, ForceMode.Impulse);
             _isDash = false;
             Debug.Log("대쉬!");
@@ -89,21 +91,28 @@ public class Player_EatTheLand_DefaultState : MonoBehaviour
 
     private void Move()
     {
-        moveDir = _inputDir.normalized * _moveSpeed * Time.deltaTime;
+        moveDir = _inputDir.normalized * _moveSpeed * Time.fixedDeltaTime;
         // _rb.velocity = moveDir;
         _rb.Move(transform.position + moveDir + externalVect, Quaternion.identity);
+        Rotation();
     }
-
+    private void Rotation()
+    {
+        if (_inputDir != Vector3.zero)
+        {
+            float angle = Mathf.Atan2(_inputDir.x, _inputDir.z) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, angle, 0);
+        }
+    }
     void Update()
     {
 
         switch (_curState)
         {
             case ETL_State.NORMAL:
-                Move();
+                Move();            
                 break;
             case ETL_State.SPRING:
-                
                 OnSpring();
                 break;
             case ETL_State.FREEZE:
@@ -111,12 +120,20 @@ public class Player_EatTheLand_DefaultState : MonoBehaviour
                 OnFreeze();
                 break;
         }
+
+        if (_upDownCheckBox.CheckBox())
+        {
+            isControlable = true;
+        }
+        else isControlable = false;
     }
 
     void OnSpring()
     {
         _rb.AddForce(transform.forward * _springFwdPower + transform.up * _springUpPower, ForceMode.Impulse);
+        // Invoke("ChangeState(ETL_State.NORMAL)", 1.5f);
         ChangeState(ETL_State.NORMAL);
+        // StartCoroutine(STATE_TO_DEFAULT(1.5f));
     }
 
     void OnFreeze()
@@ -124,10 +141,40 @@ public class Player_EatTheLand_DefaultState : MonoBehaviour
         float _time = 0;
         _time += Time.deltaTime;
         _rb.velocity = Vector3.zero;
-        if(_time >= _freezeTime)
+        if (_time >= _freezeTime)
         {
             ChangeState(ETL_State.NORMAL);
         }
     }
 
+    [SerializeField] float _speed_Time;
+    public IEnumerator STATE_TO_DEFAULT(float durationTime)
+    {
+        yield return new WaitForSeconds(durationTime);
+        ChangeState(ETL_State.NORMAL);
+
+    }
+
+    public IEnumerator FREEZE(float durationTime)
+    {
+        _rb.velocity = Vector3.zero;
+        yield return durationTime;
+    }
+
+    
+    public IEnumerator SPEED_BUFF(float buffSpeed, float durationTime)
+    {
+        float defaultSpeed = _moveSpeed;
+        _moveSpeed = buffSpeed;
+
+        Debug.Log(_moveSpeed + "속도 업!");
+        yield return new WaitForSeconds(durationTime);
+        _moveSpeed = defaultSpeed;
+        Debug.Log("속도 다운!");
+    }
+
+    public void Start_Player_SPEEDBUFF(float buffSpeed, float durationTime)
+    {
+        StartCoroutine(SPEED_BUFF(buffSpeed, durationTime));
+    }
 }
