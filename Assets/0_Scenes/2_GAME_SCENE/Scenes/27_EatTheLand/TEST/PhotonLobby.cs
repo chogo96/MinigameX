@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PhotonLobby : MonoBehaviourPunCallbacks
 {
@@ -14,8 +15,11 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     public Transform UI_CreateRoom;
     public TMP_Text UI_CreateRoom_Warning;
 
-    public TMP_Dropdown[] gameSelects = new TMP_Dropdown[3];
-    public string[] sceneNames;
+    public TMP_Dropdown dropDown1;
+    public TMP_Dropdown dropDown2;
+    public TMP_Dropdown dropDown3;
+
+    public string[] sceneNames = new string[3];
     public TMP_InputField UI_Room_Name;
 
     
@@ -76,22 +80,29 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             Click_Return_At_MakeRoom();
 
             OnDropdownValueChanged();
-            ExitGames.Client.Photon.Hashtable roomProperties = new ExitGames.Client.Photon.Hashtable
+           
+
+            PhotonNetwork.CreateRoom(inputNick, roomOptions);
+            SceneManager.LoadScene("");
+        }       
+    }
+
+    public override void OnCreatedRoom()
+    {
+        ExitGames.Client.Photon.Hashtable roomProperties = new ExitGames.Client.Photon.Hashtable
             {
                 {"CurrentRound", 0 },
                 {"SelectedScenes", sceneNames }
             };
-
-            PhotonNetwork.CreateRoom(inputNick, roomOptions);
-            PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
-        }       
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
+        Debug.Log("방에 접속이 완료되었습니다. 현재 방의 이름은 "+ roomProperties["CurrentRound"] + roomProperties["SelectedScenes"]);
     }
 
     public void Click_Return_At_MakeRoom()
     {
         UI_Lobby.gameObject.SetActive(true);
         UI_CreateRoom.gameObject.SetActive(false);
-        UI_CreateRoom_Warning.text = "";
+        UI_CreateRoom_Warning.text = "Waiting_Room_Scene";
     }
 
     public void Click_CreateUI_Button()
@@ -102,9 +113,14 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
     void OnDropdownValueChanged()
     {
-        for(int i =0; i < gameSelects.Length; i++)
-        {
-            sceneNames[i] = gameSelects[i].options[gameSelects[i].value].text;
-        }
+        Debug.Log(dropDown1.options.Count);
+
+        Debug.Log(dropDown1.options[dropDown1.value].text);
+        Debug.Log(dropDown1.options[dropDown2.value].text);
+        Debug.Log(dropDown1.options[dropDown3.value].text);
+
+        sceneNames[0] = dropDown1.options[dropDown1.value].text;
+        sceneNames[1] = dropDown2.options[dropDown2.value].text;
+        sceneNames[2] = dropDown3.options[dropDown3.value].text;
     }
 }
