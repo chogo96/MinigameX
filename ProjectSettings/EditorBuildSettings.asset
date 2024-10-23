@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/0_Scenes/1_SELECT_GAME/LobbyScene.unity
-    guid: 4354321441bb743b1852471bbc3bef13
+    path: Assets/0_Scenes/2_GAME_SCENE/Scenes/27_EatTheLand/TEST/scene/PDH_MakeNickName_TEST.unity
+    guid: 169595d9236c14ef28cec902d97665bb
+  - enabled: 1
+    path: Assets/0_Scenes/2_GAME_SCENE/Scenes/27_EatTheLand/TEST/scene/PDH_LOBBY_TEST.unity
+    guid: 6c7b770428972405ebca516de7734fc4
   - enabled: 1
     path: Assets/0_Scenes/2_GAME_SCENE/Scenes/9_DodgeMisile/DodgeMisile.unity
     guid: 99ba87fa3aa72459dbe10cbbce5d9550
@@ -24,9 +27,9 @@ EditorBuildSettings:
     path: Assets/0_Scenes/2_GAME_SCENE/Scenes/26_Flag/Flag.unity
     guid: 379f4260a651b4e6aaffbf6fae532ec9
   - enabled: 1
-    path: Assets/0_Scenes/2_GAME_SCENE/Scenes/27_EatTheLand/TEST/PDH_MakeNickName_TEST.unity
-    guid: 169595d9236c14ef28cec902d97665bb
+    path: Assets/0_Scenes/1_SELECT_GAME/LobbyScene.unity
+    guid: 4354321441bb743b1852471bbc3bef13
   - enabled: 1
-    path: Assets/0_Scenes/2_GAME_SCENE/Scenes/27_EatTheLand/TEST/PDH_LOBBY_TEST.unity
-    guid: 6c7b770428972405ebca516de7734fc4
+    path: Assets/0_Scenes/2_GAME_SCENE/Scenes/27_EatTheLand/TEST/scene/Waiting_Room_Scene.unity
+    guid: 20076ac158c7e8b4aafada295338fe53
   m_configObjects: {}

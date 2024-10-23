@@ -22,47 +22,25 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     public string[] sceneNames = new string[3];
     public TMP_InputField UI_Room_Name;
 
-    
 
+    PhotonView photon;
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        
-        if(roomList.Count == 0)
+        GameObject tempRoom = null;
+        foreach(var room in roomList)
         {
-            Debug.Log("없습니다");
-        }
-        else
-        {
-            Debug.Log("있습니다.");
-        }
-        GameObject tmpRoom = null;
-        foreach (RoomInfo room in roomList) 
-        {
-            //  룸이 삭제가 된 경우
+            Debug.Log($"room = {room.Name}");
+
             if(room.RemovedFromList == true)
             {
-                roomDic.TryGetValue(room.Name, out tmpRoom);
-                Destroy(tmpRoom);
+                roomDic.TryGetValue(room.Name, out tempRoom );
+
+                Destroy(tempRoom);
                 roomDic.Remove(room.Name);
             }
-
-            //  룸이 처음 생성된 경우
-            else 
-            {   
-                if(roomDic.ContainsKey(room.Name))
-                {
-                    GameObject _room = Instantiate(roomPrefab, scrollContent);
-                    _room.GetComponent<RoomData>().RoomInfo= room;
-                    roomDic.Add(room.Name, _room);
-                }
-                //  룸 정보가 갱신(변경)된 경우
-                else
-                {
-                    roomDic.TryGetValue(room.Name, out tmpRoom);
-                    tmpRoom.GetComponent<RoomData>().RoomInfo= room;
-                }
-            }
         }
+        
+        
     }
 
     public void Click_MakeRoom_Button()
@@ -77,18 +55,23 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             UI_CreateRoom_Warning.text = "";
             RoomOptions roomOptions = new RoomOptions();
             roomOptions.MaxPlayers = 6;
-            Click_Return_At_MakeRoom();
 
             OnDropdownValueChanged();
-           
 
+            if (!PhotonNetwork.IsConnected)
+            {
+                Debug.LogError("Photon에 연결되어 있지 않습니다! 먼저 연결해주세요.");
+                return;
+            }
+
+            Debug.Log("마스터에 들어와 있음, 방 생성 시도 중...");
             PhotonNetwork.CreateRoom(inputNick, roomOptions);
-            SceneManager.LoadScene("");
-        }       
+        }
     }
 
     public override void OnCreatedRoom()
     {
+        Debug.Log("OnCreatedRoom called");
         ExitGames.Client.Photon.Hashtable roomProperties = new ExitGames.Client.Photon.Hashtable
             {
                 {"CurrentRound", 0 },
@@ -96,12 +79,21 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             };
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomProperties);
         Debug.Log("방에 접속이 완료되었습니다. 현재 방의 이름은 "+ roomProperties["CurrentRound"] + roomProperties["SelectedScenes"]);
+        SceneManager.LoadScene("Waiting_Room_Scene");
+    }
+    public override void OnJoinedRoom()
+    {
+        Debug.Log("방에 접속이 완료되었습니다. ");
+    }
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        base.OnCreateRoomFailed(returnCode, message);
     }
 
     public void Click_Return_At_MakeRoom()
     {
-        UI_Lobby.gameObject.SetActive(true);
-        UI_CreateRoom.gameObject.SetActive(false);
+        //UI_Lobby.gameObject.SetActive(true);
+        //UI_CreateRoom.gameObject.SetActive(false);
         UI_CreateRoom_Warning.text = "Waiting_Room_Scene";
     }
 
