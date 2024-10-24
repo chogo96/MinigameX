@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pipe
       objectReference: {fileID: 0}
+    - target: {fileID: 5722355255302652774, guid: 0addb1bc057bb704ca31046449bb4e17, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7130631157837072801, guid: 0addb1bc057bb704ca31046449bb4e17, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -944,9 +948,9 @@ MonoBehaviour:
   scoreText: {fileID: 186198498}
   comboText: {fileID: 1830474588}
   spawnInterval: 2
-  minYPosition: -100
-  maxYPosition: 100
-  itemSpacing: 150
+  minYPosition: -40
+  maxYPosition: 40
+  itemSpacing: 100
 --- !u!1 &1132619074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,7 +1206,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'Combo : X1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1618,6 +1622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReversePipe
       objectReference: {fileID: 0}
+    - target: {fileID: 7302023948420867470, guid: 81aca27688d8a994e9850105aabd96d7, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1771,11 +1779,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2463377128699311193, guid: fa469a22885f16e4f9095ddfbdb23d2e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2463377128699311193, guid: fa469a22885f16e4f9095ddfbdb23d2e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2463377128699311193, guid: fa469a22885f16e4f9095ddfbdb23d2e, type: 3}
       propertyPath: m_LocalPosition.x

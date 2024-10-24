@@ -37,7 +37,7 @@ public class FB_BalloonTeamController : MonoBehaviourPunCallbacks
         {
             InitializeTeamHoldPercentages();
         }
-        UpdateScoreText();
+        //UpdateScoreText();
     }
 
     private void InitializeLocalMode()
@@ -156,28 +156,34 @@ public class FB_BalloonTeamController : MonoBehaviourPunCallbacks
     private IEnumerator InvincibilityRoutine()
     {
         isInvincible = true;
-        isControlEnabled = false;
-
-        yield return new WaitForSeconds(1f);
-        isControlEnabled = true;
-
+        isControlEnabled = false;  // 스페이스바 입력 차단
         float invincibilityDuration = 3f;
         float blinkInterval = 0.2f;
+        float inputDisableDuration = 1f;  // 스페이스바 입력 비활성화 시간
         Image image = GetComponent<Image>();
 
+        // 3초 동안 깜빡이는 효과
         for (float timer = 0; timer < invincibilityDuration; timer += blinkInterval)
         {
-            image.color = new Color(1f, 1f, 1f, 0.5f);
+            image.color = new Color(1f, 1f, 1f, 0.5f);  // 반투명 상태
             yield return new WaitForSeconds(blinkInterval / 2);
-            image.color = new Color(1f, 1f, 1f, 1f);
+            image.color = new Color(1f, 1f, 1f, 1f);    // 원래 상태
             yield return new WaitForSeconds(blinkInterval / 2);
+
+            // 깜빡임 중 1초 후 스페이스바 입력을 다시 활성화
+            if (timer >= inputDisableDuration && !isControlEnabled)
+            {
+                isControlEnabled = true;  // 1초 후 스페이스바 입력 활성화
+            }
         }
 
-        isInvincible = false;
-        image.color = new Color(1f, 1f, 1f, 1f);
+        isInvincible = false;  // 무적 상태 해제
+        image.color = new Color(1f, 1f, 1f, 1f);  // 원래 색상으로 복귀
 
-        OnInvincibilityEnd?.Invoke(); // 무적 상태 종료 시 이벤트 호출
+        OnInvincibilityEnd?.Invoke();  // 무적 상태 종료 이벤트 호출
     }
+
+
 
     public void HandleCollision()
     {
@@ -185,14 +191,6 @@ public class FB_BalloonTeamController : MonoBehaviourPunCallbacks
         {
             score -= 100;
             TriggerInvincibility(); // 무적 상태 시작
-            UpdateScoreText();
         }
     }
-
-    void UpdateScoreText()
-    {
-        scoreText.text = "Score: " + score;
-    }
-
-
 }

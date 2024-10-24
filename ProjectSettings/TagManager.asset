@@ -10,6 +10,7 @@ TagManager:
   - Goal
   - Mole
   - Item
+  - Pipe
   layers:
   - Default
   - TransparentFX

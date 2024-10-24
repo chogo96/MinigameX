@@ -3,7 +3,6 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-// 파이프와 아이템을 스폰하는 메인 스크립트
 public class FB_PipeAndItemSpawner : MonoBehaviourPun
 {
     public RectTransform topPipePrefab;      // 리버스 파이프 (위쪽에 있는 파이프)
@@ -18,38 +17,39 @@ public class FB_PipeAndItemSpawner : MonoBehaviourPun
     public float minYPosition = -200f;       // 무작위 아이템 스폰 Y축 최소 위치 (기본값)
     public float maxYPosition = 200f;        // 무작위 아이템 스폰 Y축 최대 위치 (기본값)
     public float itemSpacing = 150f;         // 아이템 간 가로 간격
-    private int score = 0;
-    private int speedLevel = 0;              // 0~5단계로 나뉨
-    private int comboMultiplier = 1;         // 최대 10배
-    private float baseSpeed = 200f;          // 기본 X축 속도
+    private float spawnTimer = 0f;           // 파이프 스폰 타이머
     private float currentSpeed;
-    private bool isSpawningPaused = false;
-    private float spawnTimer = 0f;
+    private int score = 0;
+    private int comboMultiplier = 1;
+    private int speedLevel = 0;              // 0~5단계로 나뉨
+    private float baseSpeed = 200f;
 
     private void Start()
     {
         currentSpeed = baseSpeed;
+        spawnTimer = 0f;  // 타이머 초기화
         UpdateScoreText();
     }
 
     private void Update()
     {
-        if (!isSpawningPaused)
+        spawnTimer += Time.deltaTime;  // 타이머 증가
+
+        // 타이머가 스폰 간격에 도달하면 파이프와 아이템을 스폰
+        if (spawnTimer >= spawnInterval)
         {
-            spawnTimer += Time.deltaTime;
-            if (spawnTimer >= spawnInterval)
-            {
-                SpawnPipesAndItems();
-                spawnTimer = 0f;
-            }
+            SpawnPipesAndItems();  // 파이프와 아이템 스폰
         }
     }
 
     // 파이프와 아이템을 동시에 스폰하는 함수
     void SpawnPipesAndItems()
     {
+        Debug.Log("파이프와 아이템 스폰 시작, 타이머 리셋됨");
+        spawnTimer = 0f;  // 타이머 리셋 (여기서 리셋)
+
         float randomY = Random.Range(minYPosition, maxYPosition); // 아이템 스폰 Y축 범위
-        float spawnXPosition = canvasRectTransform.rect.width;
+        float spawnXPosition = canvasRectTransform.rect.width;    // 화면 오른쪽 끝에서 스폰
 
         // 3가지 상황 중 랜덤으로 선택: 0 = 리버스 파이프만, 1 = 정방향 파이프만, 2 = 리버스 + 정방향
         int situation = Random.Range(0, 3);
@@ -57,25 +57,24 @@ public class FB_PipeAndItemSpawner : MonoBehaviourPun
         switch (situation)
         {
             case 0:
-                float reverseY = Random.Range(230f, 480f);
+                float reverseY = Random.Range(280f, 430f);
                 SpawnPipe(topPipePrefab, spawnXPosition, reverseY);
                 break;
 
             case 1:
-                float normalY = Random.Range(-450f, -230f);
+                float normalY = Random.Range(-400f, -280f);
                 SpawnPipe(bottomPipePrefab, spawnXPosition, normalY);
                 break;
 
             case 2:
-                // 리버스 파이프와 정방향 파이프가 있는 상황
-                float reverseY2 = Random.Range(350f, 480f);
-                float normalY2 = Random.Range(-450f, -350f);
+                float reverseY2 = Random.Range(350f, 430f);
+                float normalY2 = Random.Range(-400f, -350f);
                 SpawnPipe(topPipePrefab, spawnXPosition, reverseY2);
                 SpawnPipe(bottomPipePrefab, spawnXPosition, normalY2);
                 break;
         }
 
-        // 파이프 사이에 아이템 스폰 (1:3 비율로 스피드 아이템:동전)
+        // 파이프 사이에 아이템 스폰
         SpawnItems(spawnXPosition, randomY);
     }
 
@@ -91,55 +90,37 @@ public class FB_PipeAndItemSpawner : MonoBehaviourPun
         StartCoroutine(MovePipe(pipe));
     }
 
-    // 아이템 스폰 함수: 파이프와 겹치지 않도록 체크한 후 스폰
+    // 아이템 스폰 함수: 파이프 및 다른 아이템과 겹치지 않도록 체크한 후 스폰
     void SpawnItems(float startX, float startY)
     {
         for (int i = 0; i < 4; i++)
         {
-            RectTransform itemPrefab = (i == 0) ? speedBoostPrefab : coinPrefab;  // 1:3 비율로 아이템 스폰
+            RectTransform itemPrefab;
+
+            // 1:3 비율을 확률로 구현 (25% 확률로 SpeedBoost, 75% 확률로 Coin)
+            float randomValue = Random.Range(0f, 1f);  // 0.0 ~ 1.0 범위의 랜덤 값
+
+            if (randomValue <= 0.25f)
+            {
+                itemPrefab = speedBoostPrefab;  // 25% 확률로 SpeedBoost
+            }
+            else
+            {
+                itemPrefab = coinPrefab;  // 75% 확률로 Coin
+            }
+
             float xPosition = startX - (i * itemSpacing);  // 가로 방향으로 스폰
             float yPosition = startY + Random.Range(-50f, 50f);  // 약간의 높이 변동을 줘서 자연스러움
+            Vector2 itemPosition = new Vector2(xPosition, yPosition);
 
-            if (!IsOverlappingWithPipes(new Vector2(xPosition, yPosition))) // 파이프와 겹치는지 체크
+            // 파이프와 겹치지 않고, 아이템끼리 겹치지 않도록 체크
+            if (!IsOverlappingWithPipes(itemPosition) && !IsOverlappingWithItems(itemPosition))
             {
-                SpawnItem(itemPrefab, new Vector2(xPosition, yPosition));
+                SpawnItem(itemPrefab, itemPosition);
             }
         }
     }
 
-    // 파이프와 아이템이 겹치는지 확인하는 함수
-    bool IsOverlappingWithPipes(Vector2 itemPosition)
-    {
-        foreach (RectTransform pipe in canvasRectTransform.GetComponentsInChildren<RectTransform>())
-        {
-            if (pipe.gameObject.CompareTag("Pipe"))
-            {
-                if (RectTransformOverlaps(pipe, new RectTransform { anchoredPosition = itemPosition }))
-                {
-                    return true;  // 파이프와 겹친 경우
-                }
-            }
-        }
-        return false;
-    }
-
-    // RectTransform 겹침 확인 함수 추가
-    bool RectTransformOverlaps(RectTransform rect1, RectTransform rect2)
-    {
-        Vector3[] rect1Corners = new Vector3[4];
-        Vector3[] rect2Corners = new Vector3[4];
-
-        rect1.GetWorldCorners(rect1Corners);
-        rect2.GetWorldCorners(rect2Corners);
-
-        Rect rect1World = new Rect(rect1Corners[0].x, rect1Corners[0].y,
-            rect1Corners[2].x - rect1Corners[0].x, rect1Corners[2].y - rect1Corners[0].y);
-
-        Rect rect2World = new Rect(rect2Corners[0].x, rect2Corners[0].y,
-            rect2Corners[2].x - rect2Corners[0].x, rect2Corners[2].y - rect2Corners[0].y);
-
-        return rect1World.Overlaps(rect2World);
-    }
 
     // 아이템 스폰 함수: 아이템 스폰 시 충돌 핸들러 설정
     void SpawnItem(RectTransform itemPrefab, Vector2 position)
@@ -151,8 +132,63 @@ public class FB_PipeAndItemSpawner : MonoBehaviourPun
         string itemType = itemPrefab == coinPrefab ? "Coin" : "SpeedBoost";
         item.gameObject.AddComponent<ItemCollisionHandler>().Setup(this, itemType);
 
-        StartCoroutine(MoveItem(item));  // 아이템 이동 시작
+        StartCoroutine(MoveItem(item));
     }
+
+    // 파이프와 아이템이 겹치는지 확인하는 함수
+    bool IsOverlappingWithPipes(Vector2 itemPosition)
+    {
+        RectTransform[] pipeTransforms = canvasRectTransform.GetComponentsInChildren<RectTransform>();
+
+        foreach (RectTransform pipe in pipeTransforms)
+        {
+            if (pipe != null && pipe.gameObject.GetComponent<PipeCollisionHandler>() != null)
+            {
+                if (RectTransformOverlaps(pipe, itemPosition))
+                {
+                    return true;  // 파이프와 겹친 경우
+                }
+            }
+        }
+        return false;
+    }
+
+    // 아이템끼리 겹치는지 확인하는 함수
+    bool IsOverlappingWithItems(Vector2 itemPosition)
+    {
+        RectTransform[] itemTransforms = canvasRectTransform.GetComponentsInChildren<RectTransform>();
+
+        foreach (RectTransform item in itemTransforms)
+        {
+            if (item != null && item.gameObject.GetComponent<ItemCollisionHandler>() != null)
+            {
+                if (RectTransformOverlaps(item, itemPosition))
+                {
+                    return true;  // 아이템끼리 겹친 경우
+                }
+            }
+        }
+        return false;
+    }
+
+    // RectTransform 겹침 확인 함수
+    bool RectTransformOverlaps(RectTransform rect1, Vector2 itemPosition)
+    {
+        if (rect1 == null)
+        {
+            return false;
+        }
+
+        Vector3[] rect1Corners = new Vector3[4];
+        rect1.GetWorldCorners(rect1Corners);
+
+        Rect rect1World = new Rect(rect1Corners[0].x, rect1Corners[0].y,
+            rect1Corners[2].x - rect1Corners[0].x, rect1Corners[2].y - rect1Corners[0].y);
+
+        // Check if the item position is within the rect1 bounds
+        return rect1World.Contains(itemPosition);
+    }
+
 
     // 파이프 이동 함수
     IEnumerator MovePipe(RectTransform pipe)
@@ -202,20 +238,6 @@ public class FB_PipeAndItemSpawner : MonoBehaviourPun
         comboMultiplier = 1;  // 콤보 초기화
         UpdateComboText();    // 콤보 텍스트 업데이트
         UpdateScoreText();
-        StartCoroutine(BlinkBalloon());  // 열기구 깜빡이기
-    }
-
-    // 열기구 깜빡이는 코루틴
-    IEnumerator BlinkBalloon()
-    {
-        SpriteRenderer spriteRenderer = balloonRectTransform.GetComponent<SpriteRenderer>();
-        for (int i = 0; i < 5; i++)
-        {
-            spriteRenderer.enabled = false;
-            yield return new WaitForSeconds(0.1f);
-            spriteRenderer.enabled = true;
-            yield return new WaitForSeconds(0.1f);
-        }
     }
 
     // 점수 업데이트 함수
@@ -230,8 +252,6 @@ public class FB_PipeAndItemSpawner : MonoBehaviourPun
         comboText.text = "Combo: x" + comboMultiplier;
     }
 }
-
-
 
 // 파이프 충돌 핸들러
 public class PipeCollisionHandler : MonoBehaviour
@@ -301,6 +321,30 @@ public class ItemCollisionHandler : MonoBehaviour
             pipeSpawner.HandleItemPickup(itemType);  // 아이템 처리
             Destroy(gameObject);  // 아이템 파괴
         }
+
+        // 파이프와 겹치는지 확인 후 삭제
+        if (IsOverlappingWithPipes())
+        {
+            Destroy(gameObject);  // 파이프와 겹치면 아이템 삭제
+        }
+    }
+
+    // 파이프와 겹치는지 확인
+    bool IsOverlappingWithPipes()
+    {
+        RectTransform[] pipeTransforms = pipeSpawner.canvasRectTransform.GetComponentsInChildren<RectTransform>();
+
+        foreach (RectTransform pipe in pipeTransforms)
+        {
+            if (pipe != null && pipe.gameObject.GetComponent<PipeCollisionHandler>() != null)
+            {
+                if (RectTransformOverlaps(pipe, GetComponent<RectTransform>()))
+                {
+                    return true;  // 파이프와 겹침
+                }
+            }
+        }
+        return false;
     }
 
     // RectTransform의 충돌 확인
@@ -321,3 +365,4 @@ public class ItemCollisionHandler : MonoBehaviour
         return rect1World.Overlaps(rect2World);
     }
 }
+
